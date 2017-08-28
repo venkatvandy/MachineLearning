@@ -27,8 +27,6 @@ public class MajorityAlgorithm extends Predictor{
     }
 
     public Label predict(Instance instance){
-        System.out.println(" count0:" + count0);
-        System.out.println(" count1:" + count1);
         if(this.count0>this.count1){
             return new ClassificationLabel(0);
         }
