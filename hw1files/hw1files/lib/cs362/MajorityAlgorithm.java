@@ -27,6 +27,12 @@ public class MajorityAlgorithm extends Predictor{
     }
 
     public Label predict(Instance instance){
+        if(count0>count1){
+            return new ClassificationLabel(0);
+        }
+        if(count1>count0){
+            return new ClassificationLabel(1);
+        }
         return null;
     }
 }

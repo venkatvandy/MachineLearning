@@ -33,6 +33,11 @@ public class EvenOddAlgorithm extends Predictor {
     }
 
     public Label predict(Instance instance){
-        return null;
+        if(even_sum>odd_sum){
+            return new ClassificationLabel(1);
+        }
+        else{
+            return new ClassificationLabel(0);
+        }
     }
 }

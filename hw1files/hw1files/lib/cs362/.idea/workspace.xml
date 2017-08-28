@@ -37,7 +37,14 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1344">
               <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
-              <folding />
+              <folding>
+                <marker date="1503901819471" expanded="true" signature="3103:3383" ph="{...}" />
+                <marker date="1503901819471" expanded="true" signature="3449:3744" ph="{...}" />
+                <marker date="1503901819471" expanded="true" signature="3747:3831" ph="/**...*/" />
+                <marker date="1503901819471" expanded="true" signature="3883:4284" ph="{...}" />
+                <marker date="1503901819471" expanded="true" signature="4396:4605" ph="{...}" />
+                <marker date="1503901819471" expanded="true" signature="4656:5211" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,9 +52,12 @@
       <file leaf-file-name="MajorityAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MajorityAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="630">
+              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <folding>
+                <element signature="e#595#596#0" expanded="true" />
+                <element signature="e#622#623#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -285,7 +295,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1344">
           <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
-          <folding />
+          <folding>
+            <marker date="1503901819471" expanded="true" signature="3103:3383" ph="{...}" />
+            <marker date="1503901819471" expanded="true" signature="3449:3744" ph="{...}" />
+            <marker date="1503901819471" expanded="true" signature="3747:3831" ph="/**...*/" />
+            <marker date="1503901819471" expanded="true" signature="3883:4284" ph="{...}" />
+            <marker date="1503901819471" expanded="true" signature="4396:4605" ph="{...}" />
+            <marker date="1503901819471" expanded="true" signature="4656:5211" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -301,7 +318,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#622#623#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -347,15 +367,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1344">
           <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
-          <folding />
+          <folding>
+            <marker date="1503901819471" expanded="true" signature="3103:3383" ph="{...}" />
+            <marker date="1503901819471" expanded="true" signature="3449:3744" ph="{...}" />
+            <marker date="1503901819471" expanded="true" signature="3747:3831" ph="/**...*/" />
+            <marker date="1503901819471" expanded="true" signature="3883:4284" ph="{...}" />
+            <marker date="1503901819471" expanded="true" signature="4396:4605" ph="{...}" />
+            <marker date="1503901819471" expanded="true" signature="4656:5211" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MajorityAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="630">
+          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#622#623#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -79,20 +79,27 @@ public class Learn {
 		if(algorithm=="majority"){
 			MajorityAlgorithm majority = new MajorityAlgorithm();
 			majority.train(instances);
+			/*for (Instance instance : instances) {
+				Label label = majority.predict(instance);
+			}*/
+			return majority;
 		}
 
 		if(algorithm=="even_odd"){
 			EvenOddAlgorithm evenodd = new EvenOddAlgorithm();
 			evenodd.train(instances);
+			return evenodd;
 		}
 
-	    return null;
+
+		return null;
 	}
 
 	private static void evaluateAndSavePredictions(Predictor predictor,
 			List<Instance> instances, String predictions_file) throws IOException {
 		PredictionsWriter writer = new PredictionsWriter(predictions_file);
-		// TODO Evaluate the model if labels are available. 
+		// TODO Evaluate the model if labels are available.
+
 		
 		for (Instance instance : instances) {
 			Label label = predictor.predict(instance);
