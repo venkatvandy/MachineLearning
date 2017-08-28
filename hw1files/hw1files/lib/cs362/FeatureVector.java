@@ -5,7 +5,12 @@ import java.util.HashMap;
 
 public class FeatureVector implements Serializable {
 
-	protected final HashMap<Integer, Double> FeatureVector = null;
+	public HashMap<Integer, Double> FeatureVector = null;
+
+	public FeatureVector(){
+		this.FeatureVector = new HashMap<Integer,Double>();
+	}
+
 
 	public void add(int index, double value) {
 		// TODO Auto-generated method stub

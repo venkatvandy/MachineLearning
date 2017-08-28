@@ -17,7 +17,7 @@ public class EvenOddAlgorithm extends Predictor {
         this.odd_sum=0;
     }
     public void train(List<Instance> instances){
-        for (Instance instance : instances) {
+        /*for (Instance instance : instances) {
             FeatureVector fv = instance.getFeatureVector();
             HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
 
@@ -29,10 +29,22 @@ public class EvenOddAlgorithm extends Predictor {
                     odd_sum = odd_sum + m.getValue();
                 }
             }
-        }
+        }*/
     }
 
     public Label predict(Instance instance){
+        FeatureVector fv = instance.getFeatureVector();
+        HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+        this.even_sum=0;
+        this.odd_sum=0;
+        for(HashMap.Entry<Integer,Double> m:hashMapfv.entrySet()) {
+            if(m.getKey()%2==0){
+                even_sum = even_sum + m.getValue();
+            }
+            if(m.getKey()%2==1){
+                odd_sum = odd_sum + m.getValue();
+            }
+        }
         if(even_sum>odd_sum){
             return new ClassificationLabel(1);
         }

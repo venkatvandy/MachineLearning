@@ -17,22 +17,23 @@ public class MajorityAlgorithm extends Predictor{
 
     public void train(List<Instance> instances){
         for (Instance instance : instances) {
-            if(instance.getLabel().toString()=="0"){
+            if(instance.getLabel().toString().equals("0")){
                 this.count0++;
             }
-            if(instance.getLabel().toString()=="1"){
+            if(instance.getLabel().toString().equals("1")){
                 this.count1++;
             }
         }
     }
 
     public Label predict(Instance instance){
-        if(count0>count1){
+        System.out.println(" count0:" + count0);
+        System.out.println(" count1:" + count1);
+        if(this.count0>this.count1){
             return new ClassificationLabel(0);
         }
-        if(count1>count0){
+        else{
             return new ClassificationLabel(1);
         }
-        return null;
     }
 }

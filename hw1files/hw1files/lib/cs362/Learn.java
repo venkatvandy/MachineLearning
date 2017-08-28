@@ -76,23 +76,19 @@ public class Learn {
 	private static Predictor train(List<Instance> instances, String algorithm) {
 	    // TODO Train the model using "algorithm" on "data"
 	    // TODO Evaluate the model
-		if(algorithm=="majority"){
+		if(algorithm.equals("majority")){
 			MajorityAlgorithm majority = new MajorityAlgorithm();
 			majority.train(instances);
-			/*for (Instance instance : instances) {
-				Label label = majority.predict(instance);
-			}*/
 			return majority;
 		}
-
-		if(algorithm=="even_odd"){
+		else{
+		//if(algorithm=="even_odd"){
 			EvenOddAlgorithm evenodd = new EvenOddAlgorithm();
 			evenodd.train(instances);
 			return evenodd;
 		}
 
-
-		return null;
+		//return null;
 	}
 
 	private static void evaluateAndSavePredictions(Predictor predictor,
