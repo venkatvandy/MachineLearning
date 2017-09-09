@@ -38,12 +38,13 @@
             <state relative-caret-position="1344">
               <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
               <folding>
-                <marker date="1503903793248" expanded="true" signature="3362:3516" ph="{...}" />
-                <marker date="1503903793248" expanded="true" signature="3582:3877" ph="{...}" />
-                <marker date="1503903793248" expanded="true" signature="3880:3964" ph="/**...*/" />
-                <marker date="1503903793248" expanded="true" signature="4016:4417" ph="{...}" />
-                <marker date="1503903793248" expanded="true" signature="4529:4738" ph="{...}" />
-                <marker date="1503903793248" expanded="true" signature="4789:5344" ph="{...}" />
+                <marker date="1503953524630" expanded="true" signature="3157:3437" ph="{...}" />
+                <marker date="1503953524630" expanded="true" signature="3283:3437" ph="{...}" />
+                <marker date="1503953524630" expanded="true" signature="3503:3798" ph="{...}" />
+                <marker date="1503953524630" expanded="true" signature="3801:3885" ph="/**...*/" />
+                <marker date="1503953524630" expanded="true" signature="3937:4338" ph="{...}" />
+                <marker date="1503953524630" expanded="true" signature="4450:4659" ph="{...}" />
+                <marker date="1503953524630" expanded="true" signature="4710:5265" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -53,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/MajorityAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="701">
-              <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+              <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -105,8 +106,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -118,12 +121,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../hw2files_new/hw2files/lib/cs362" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -289,15 +290,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Learn.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1659">
+          <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
+          <folding>
+            <marker date="1503953524630" expanded="true" signature="3157:3437" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3283:3437" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3503:3798" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3801:3885" ph="/**...*/" />
+            <marker date="1503953524630" expanded="true" signature="3937:4338" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="4450:4659" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="4710:5265" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Instance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MajorityAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Label.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Learn.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1344">
           <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
           <folding>
-            <marker date="1503903793248" expanded="true" signature="3362:3516" ph="{...}" />
-            <marker date="1503903793248" expanded="true" signature="3582:3877" ph="{...}" />
-            <marker date="1503903793248" expanded="true" signature="3880:3964" ph="/**...*/" />
-            <marker date="1503903793248" expanded="true" signature="4016:4417" ph="{...}" />
-            <marker date="1503903793248" expanded="true" signature="4529:4738" ph="{...}" />
-            <marker date="1503903793248" expanded="true" signature="4789:5344" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3157:3437" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3283:3437" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3503:3798" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3801:3885" ph="/**...*/" />
+            <marker date="1503953524630" expanded="true" signature="3937:4338" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="4450:4659" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="4710:5265" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -361,12 +411,13 @@
         <state relative-caret-position="1344">
           <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
           <folding>
-            <marker date="1503903793248" expanded="true" signature="3362:3516" ph="{...}" />
-            <marker date="1503903793248" expanded="true" signature="3582:3877" ph="{...}" />
-            <marker date="1503903793248" expanded="true" signature="3880:3964" ph="/**...*/" />
-            <marker date="1503903793248" expanded="true" signature="4016:4417" ph="{...}" />
-            <marker date="1503903793248" expanded="true" signature="4529:4738" ph="{...}" />
-            <marker date="1503903793248" expanded="true" signature="4789:5344" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3157:3437" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3283:3437" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3503:3798" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="3801:3885" ph="/**...*/" />
+            <marker date="1503953524630" expanded="true" signature="3937:4338" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="4450:4659" ph="{...}" />
+            <marker date="1503953524630" expanded="true" signature="4710:5265" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -374,7 +425,7 @@
     <entry file="file://$PROJECT_DIR$/MajorityAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="701">
-          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
           <folding />
         </state>
       </provider>
