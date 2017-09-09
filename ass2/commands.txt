@@ -1,7 +1,7 @@
 javac -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362/*.java
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-NASDAQ
+NASDAQ Linear Regression
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm linear_regression -model_file nasdaq.linear_regression.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\nasdaq.train -task regression
 
@@ -12,8 +12,22 @@ java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons
 
 python compute_regression_accuracy.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\nasdaq.dev E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib\nasdaq.dev.linear_regression.predictions
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
------------------------
+Bio Perceptron
+
+javac -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362/*.java
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm perceptron -model_file bio.perceptron.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.train -task classification
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm perceptron -model_file bio.perceptron.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.train -task classification -online_training_iterations 100 -online_learning_rate 0.7
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file bio.perceptron.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.dev -predictions_file bio.dev.perceptron.predictions -task classification
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Speech
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\hw1files\hw1files\lib;commons-cli-1.2.jar cs362.Learn -mode train -algorithm even_odd -model_file speech.even_odd.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\hw1files\hw1files\data\Data\speech\speech.train -task classification

@@ -20,6 +20,8 @@ import java.util.regex.Pattern;
 public class
 Learn {
 	static public LinkedList<Option> options = new LinkedList<Option>();
+	public static double online_learning_rate;
+	public static int online_training_iterations;
 	
 	public static void main(String[] args) throws IOException {
 		// Parse the command line.
@@ -35,7 +37,15 @@ Learn {
 		String task = CommandLineUtilities.getOptionValue("task"); // classification vs. regression
 
 		boolean classify = true;
-		
+
+		online_learning_rate = 1.0;
+		if (CommandLineUtilities.hasArg("online_learning_rate"))
+			online_learning_rate = CommandLineUtilities.getOptionValueAsFloat("online_learning_rate");
+
+		online_training_iterations = 1;
+		if (CommandLineUtilities.hasArg("online_training_iterations"))
+			online_training_iterations = CommandLineUtilities.getOptionValueAsInt("online_training_iterations");
+
 		if (task != null && task.equals("regression")) {
 		    classify = false;
 		}
@@ -81,6 +91,11 @@ Learn {
 			LinearRegression lr = new LinearRegression(instances);
 			lr.train(instances);
 			return lr;
+		}
+		else if(algorithm.equals("perceptron")){
+			PerceptronClassifier pc = new PerceptronClassifier(instances,online_learning_rate,online_training_iterations);
+			pc.train(instances);
+			return pc;
 		}
 		else{
 		//if(algorithm=="even_odd"){
@@ -156,6 +171,8 @@ Learn {
 		registerOption("algorithm", "String", true, "The name of the algorithm for training.");
 		registerOption("model_file", "String", true, "The name of the model file to create/load.");
 		registerOption("task", "String", true, "The name of the task (classification or regression).");
+		registerOption("online_learning_rate", "double", true, "The LTU learning rate.");
+		registerOption("online_training_iterations", "int", true, "The number of training iterations for LTU.");
 		
 		// Other options will be added here.
 	}
