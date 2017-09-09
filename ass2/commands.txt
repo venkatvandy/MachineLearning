@@ -5,8 +5,12 @@ NASDAQ
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm linear_regression -model_file nasdaq.linear_regression.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\nasdaq.train -task regression
 
-
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file nasdaq.linear_regression.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\nasdaq.dev -predictions_file nasdaq.dev.linear_regression.predictions -task regression
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file nasdaq.linear_regression.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\nasdaq.test -predictions_file nasdaq.dev.linear_regression.predictionstest -task regression
+
+
+python compute_regression_accuracy.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\nasdaq.dev E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib\nasdaq.dev.linear_regression.predictions
 
 
 -----------------------

@@ -3,7 +3,7 @@
 import sys, math
 
 if len(sys.argv) != 3:
-    print('usage: %s data predictions' % sys.argv[0])
+    print ('usage: %s data predictions' % sys.argv[0])
     sys.exit()
 
 data_file = sys.argv[1]

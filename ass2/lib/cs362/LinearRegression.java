@@ -16,6 +16,8 @@ public class LinearRegression extends Predictor{
 
     public int rows,cols;
 
+    //static int count=0;
+
     public LinearRegression(List<Instance> instances){
         rows = instances.size();
         cols = instances.get(0).getFeatureVector().FeatureVector.size()+1;
@@ -25,6 +27,8 @@ public class LinearRegression extends Predictor{
 
         int i=0;
         int j=0;
+
+        //Initialize the X array with all feature vectors and 1s in the 1st column
 
         for (Instance instance : instances) {
             FeatureVector fv = instance.getFeatureVector();
@@ -41,6 +45,7 @@ public class LinearRegression extends Predictor{
         }
 
         i=0;
+        //Initialize the Y vector with given labels
         for (Instance instance : instances) {
             Y.setEntry(i,0,Double.parseDouble(instance.getLabel().toString()));
             i++;
@@ -63,6 +68,7 @@ public class LinearRegression extends Predictor{
 
     @Override
     public void train(List<Instance> instances) {
+        //calculate the weights
         RealMatrix X_t = X.transpose();
         RealMatrix temp = X_t.multiply(X);
         RealMatrix X_txXInv = new LUDecomposition(temp).getSolver().getInverse();
@@ -78,6 +84,9 @@ public class LinearRegression extends Predictor{
 
     @Override
     public Label predict(Instance instance) {
+
+        //count++;
+        //System.out.print("\nCount is: "+ count);
         FeatureVector fv = instance.getFeatureVector();
         HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
         RealMatrix Xi = new BlockRealMatrix(1,cols);
