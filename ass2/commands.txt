@@ -12,6 +12,8 @@ java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons
 
 python compute_regression_accuracy.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\nasdaq.dev E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib\nasdaq.dev.linear_regression.predictions
 
+Error = 115.777362
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Bio Perceptron
@@ -24,6 +26,12 @@ java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file bio.perceptron.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.dev -predictions_file bio.dev.perceptron.predictions -task classification
 
+python compute_regression_accuracy.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.dev E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib\bio.dev.perceptron.predictions
+
+Error = 0.04
+Accuracy = 96.0 (1,1)
+Accuracy = 94.5 (10,1)
+
 -----------------
 
 Naive Bayesian
@@ -34,7 +42,10 @@ java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file bio.naive_bayes.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.dev -predictions_file bio.dev.naive_bayes.predictions -task classification
 
+python compute_regression_accuracy.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.dev E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib\bio.dev.naive_bayes.predictions
 
+Error = 0.025
+Accuracy - 97.5
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Speech
 

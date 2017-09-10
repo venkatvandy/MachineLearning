@@ -28,7 +28,7 @@ if len(predicted_labels) != len(true_labels):
     print ('Number of lines in two files do not match.')
     sys.exit()
 
-'''    
+'''
 match = 0
 total = len(predicted_labels)
 

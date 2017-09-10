@@ -15,8 +15,9 @@ public class NaiveBayesClassifier extends Predictor {
     RealMatrix ProbCount_1=null;
     double total_0 = 0;
     double total_1 = 0;
+    double lambda;
 
-    public NaiveBayesClassifier(List<Instance> instances){
+    public NaiveBayesClassifier(List<Instance> instances,double l){
         for (Instance instance : instances) {
             double label = Double.parseDouble(instance.getLabel().toString());
             if(label==1)
@@ -24,6 +25,8 @@ public class NaiveBayesClassifier extends Predictor {
             else
                 total_0++;
         }
+
+        lambda = l;
 
         p_0 = total_0/instances.size();
         p_1 = total_1/instances.size();

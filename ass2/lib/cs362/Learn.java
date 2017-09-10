@@ -22,7 +22,8 @@ Learn {
 	static public LinkedList<Option> options = new LinkedList<Option>();
 	public static double online_learning_rate;
 	public static int online_training_iterations;
-	
+	public static double lambda;
+
 	public static void main(String[] args) throws IOException {
 		// Parse the command line.
 		String[] manditory_args = { "mode"};
@@ -45,6 +46,10 @@ Learn {
 		online_training_iterations = 1;
 		if (CommandLineUtilities.hasArg("online_training_iterations"))
 			online_training_iterations = CommandLineUtilities.getOptionValueAsInt("online_training_iterations");
+
+		lambda = 1.0;
+		if (CommandLineUtilities.hasArg("lambda"))
+			lambda = CommandLineUtilities.getOptionValueAsFloat("lambda");
 
 		if (task != null && task.equals("regression")) {
 		    classify = false;
@@ -98,7 +103,7 @@ Learn {
 			return pc;
 		}
 		else{
-			NaiveBayesClassifier nbc = new NaiveBayesClassifier(instances);
+			NaiveBayesClassifier nbc = new NaiveBayesClassifier(instances,lambda);
 			nbc.train(instances);
 			return nbc;
 		}
@@ -110,13 +115,22 @@ Learn {
 			List<Instance> instances, String predictions_file) throws IOException {
 		PredictionsWriter writer = new PredictionsWriter(predictions_file);
 		// TODO Evaluate the model if labels are available.
-
+		double accuracy = 0;
+		int total = 0;
 		
 		for (Instance instance : instances) {
 			Label label = predictor.predict(instance);
 			writer.writePrediction(label);
+			if(instance.getLabel()!=null){
+				total += 1;
+				if(label.toString().equals(instance.getLabel().toString())){
+					accuracy += 1;
+				}
+			}
 		}
-		
+		double clrate = accuracy*100/total;
+		System.out.println("\n\n****Accuracy****: "+ clrate);
+
 		writer.close();
 		
 	}
@@ -172,7 +186,7 @@ Learn {
 		registerOption("task", "String", true, "The name of the task (classification or regression).");
 		registerOption("online_learning_rate", "double", true, "The LTU learning rate.");
 		registerOption("online_training_iterations", "int", true, "The number of training iterations for LTU.");
-		
+		registerOption("lambda", "double", true, "The level of smoothing for Naive Bayes.");
 		// Other options will be added here.
 	}
 }
