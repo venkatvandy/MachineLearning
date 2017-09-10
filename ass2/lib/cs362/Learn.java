@@ -87,21 +87,20 @@ Learn {
 	private static Predictor train(List<Instance> instances, String algorithm) {
 	    // TODO Train the model using "algorithm" on "data"
 	    // TODO Evaluate the model
-		if(algorithm.equals("linear_regression")){
+		if(algorithm.equalsIgnoreCase("linear_regression")){
 			LinearRegression lr = new LinearRegression(instances);
 			lr.train(instances);
 			return lr;
 		}
-		else if(algorithm.equals("perceptron")){
+		else if(algorithm.equalsIgnoreCase("perceptron")){
 			PerceptronClassifier pc = new PerceptronClassifier(instances,online_learning_rate,online_training_iterations);
 			pc.train(instances);
 			return pc;
 		}
 		else{
-		//if(algorithm=="even_odd"){
-			EvenOddAlgorithm evenodd = new EvenOddAlgorithm();
-			evenodd.train(instances);
-			return evenodd;
+			NaiveBayesClassifier nbc = new NaiveBayesClassifier(instances);
+			nbc.train(instances);
+			return nbc;
 		}
 
 		//return null;
