@@ -2,6 +2,7 @@ package cs362;
 
 import org.apache.commons.math3.linear.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,20 +17,31 @@ public class NaiveBayesClassifier extends Predictor {
     double total_0 = 0;
     double total_1 = 0;
     double lambda;
+    //HashMap<Integer, Double> lambdahashMap;
+    List<HashMap<Integer, Double>> lambdahashMap;
 
     public NaiveBayesClassifier(List<Instance> instances,double l){
-        for (Instance instance : instances) {
-            double label = Double.parseDouble(instance.getLabel().toString());
-            if(label==1)
-                total_1++;
-            else
-                total_0++;
-        }
 
         lambda = l;
+        for (Instance instance : instances) {
+            double label = Double.parseDouble(instance.getLabel().toString());
+            if(label==1){
+                total_1++;
+                total_1 = total_1 + lambda;
+            }
+            else {
+                total_0++;
+                total_0 = total_0 + lambda;
+            }
+        }
 
-        p_0 = total_0/instances.size();
-        p_1 = total_1/instances.size();
+        lambdahashMap = new ArrayList<HashMap<Integer, Double>>();
+
+        /*p_0 = total_0/instances.size();
+        p_1 = total_1/instances.size();*/
+
+        p_0 = total_0/(total_0+total_1);
+        p_1 = total_1/(total_0+total_1);
 
         System.out.print("\n\n*****total_0****: "+ total_0);
         System.out.print("\n\n*****total_1****: "+ total_1);
@@ -48,6 +60,11 @@ public class NaiveBayesClassifier extends Predictor {
             }
         }
         cols = max_key+1;
+
+
+        //Make an arraylist of hashmaps from existing instances by increasing each label/feature count by lambda
+        do_lamba_smoothing(instances);
+
         FeatureCount_0 = new BlockRealMatrix(1,cols);
         FeatureCount_1 = new BlockRealMatrix(1,cols);
         ProbCount_0 = new BlockRealMatrix(1,cols);
@@ -63,25 +80,63 @@ public class NaiveBayesClassifier extends Predictor {
         }
     }
 
-    @Override
-    public void train(List<Instance> instances) {
-
+    void do_lamba_smoothing(List<Instance> instances){
         for (Instance instance : instances) {
             double label = Double.parseDouble(instance.getLabel().toString());
             FeatureVector fv = instance.getFeatureVector();
-            HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
-            for (HashMap.Entry<Integer, Double> m : hashMapfv.entrySet()) {
-                double count;
-                if(label==0) {
-                    count = FeatureCount_0.getEntry(0, m.getKey()) + 1;
-                    FeatureCount_0.setEntry(0,m.getKey(),count);
+            HashMap<Integer, Double> tempHashMap = fv.FeatureVector;
+            //lambdahashMap.add(fv.FeatureVector)  ;
+            /*for (HashMap.Entry<Integer, Double> m : hashMapfv.entrySet()) {
+                m.setValue(m.getValue()+lambda);
+            }*/
+
+            // Storing the label in key 0 on the hashmap
+            tempHashMap.put(0,label);
+            for(int i=1;i<cols;i++){
+                if(tempHashMap.containsKey(i)){
+                    double temp=tempHashMap.get(i);
+                    if((tempHashMap.get(i)!=0) &&(tempHashMap.get(i)!=1)){
+                        if(tempHashMap.get(i)<0.5)
+                            temp=0;
+                        else
+                            temp=1;
+                    }
+
+                    tempHashMap.put(i,temp+lambda);
                 }
-                else if(label==1) {
-                    count = FeatureCount_1.getEntry(0, m.getKey()) + 1;
-                    FeatureCount_1.setEntry(0, m.getKey(),count);
+                else{
+                    tempHashMap.put(i,lambda);
                 }
             }
+            lambdahashMap.add(tempHashMap);
         }
+    }
+
+    @Override
+    public void train(List<Instance> instances) {
+        //for (Instance instance : instances) {
+            //double label = Double.parseDouble(instance.getLabel().toString());
+            //FeatureVector fv = instance.getFeatureVector();
+            //HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+            //for (HashMap.Entry<Integer, Double> m : lambdahashMap.entrySet()) {
+            for(HashMap<Integer, Double> hm : lambdahashMap) {
+                double label = hm.get(0);
+                double count=0;
+                for (HashMap.Entry<Integer, Double> m : hm.entrySet()) {
+                    if(m.getKey()!=0) {
+                        if (label == 0) {
+                            //count = count + FeatureCount_0.getEntry(0, m.getKey());
+                            count = FeatureCount_0.getEntry(0, m.getKey()) + m.getValue();
+                            FeatureCount_0.setEntry(0, m.getKey(), count);
+                        } else if (label == 1) {
+                            //count = count + FeatureCount_1.getEntry(0, m.getKey());
+                            count = FeatureCount_1.getEntry(0, m.getKey()) + m.getValue();
+                            FeatureCount_1.setEntry(0, m.getKey(), count);
+                        }
+                    }
+                }
+            }
+
         /*System.out.print("\n\nFeatureCount_0****\n\n");
         print_matrix(FeatureCount_0);
         System.out.print("\n\nFeatureCount_1****\n\n");
@@ -96,10 +151,10 @@ public class NaiveBayesClassifier extends Predictor {
         }
 
 
-        /*System.out.print("\n\nProbCount_0****\n\n");
+        System.out.print("\n\nProbCount_0****\n\n");
         print_matrix(ProbCount_0);
         System.out.print("\n\nProbCount_1****\n\n");
-        print_matrix(ProbCount_1);*/
+        print_matrix(ProbCount_1);
 
     }
 
