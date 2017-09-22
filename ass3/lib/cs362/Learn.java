@@ -139,6 +139,7 @@ Learn {
 		
 		for (Instance instance : instances) {
 			Label label = predictor.predict(instance);
+			//KernelLogisticRegression.count++;
 			writer.writePrediction(label);
 			if(instance.getLabel()!=null){
 				total += 1;

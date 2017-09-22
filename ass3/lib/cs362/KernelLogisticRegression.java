@@ -18,6 +18,7 @@ public class KernelLogisticRegression extends Predictor {
     BlockRealMatrix alpha;
     int cols;
     List<Instance> total_instances;
+    static int count = 1;
 
     public KernelLogisticRegression(List<Instance> instances,String kernel,double polynomial_kernel_exponent,
                                     double gaussian_kernel_sigma,double gradient_ascent_learning_rate,int gradient_ascent_training_iterations){
@@ -59,6 +60,8 @@ public class KernelLogisticRegression extends Predictor {
         gramMatrix = new BlockRealMatrix(N+1,N+1);
 
         calculate_gram_matrix(instances);
+
+        gramMatrix = gramMatrix.transpose();
         /*if(kernel.equalsIgnoreCase("linear_kernel"))
             LinearKernelLogisticRegression lklr = new LinearKernelLogisticRegression(instances, kernel, polynomial_kernel_exponent, gaussian_kernel_sigma, gradient_ascent_learning_rate, gradient_ascent_training_iterations);
         else if(kernel.equalsIgnoreCase("polynomial_kernel"))
@@ -101,11 +104,12 @@ public class KernelLogisticRegression extends Predictor {
         BlockRealMatrix currentFeatureVector = new BlockRealMatrix(1,N+1);
         int required_index=-1;
 
-        for(j=0;j<total_instances.size();j++){
+
+        /*for(j=0;j<total_instances.size();j++){
             if(instance.equals(total_instances.get(j))){
                 required_index = j+1;
             }
-        }
+        }*/
 
         /*FeatureVector fv = instance.getFeatureVector();
         HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
@@ -124,12 +128,14 @@ public class KernelLogisticRegression extends Predictor {
             }
         }*/
 
-        if(required_index==-1)
-            System.out.print("\n\n\n\n\n\nMa chudva lo");
+
+        System.out.print("\n"+count);
 
         for(j=1;j<N+1;j++){
-            val = val + (alpha.getEntry(0,j)*gramMatrix.getEntry(j,required_index));
+            val = val + (alpha.getEntry(0,j)*gramMatrix.getEntry(j,count));
         }
+
+        count++;
 
         if(g(val)>=0.5){
             return new ClassificationLabel(1);
@@ -145,11 +151,12 @@ public class KernelLogisticRegression extends Predictor {
             int j=1;
 
             for(i=1;i<N+1;i++){
+                //RealMatrix X = featureMatrix.getSubMatrix(i,i,1,cols-1);
+                RealMatrix X = featureMatrix.getRowMatrix(i);
                 for(j=1;j<N+1;j++){
-                    RealMatrix X = featureMatrix.getSubMatrix(i,i,1,cols-1);
 
-                    RealMatrix X_dash = featureMatrix.getSubMatrix(j,j,1,cols-1).transpose();
-
+                    //RealMatrix X_dash = featureMatrix.getSubMatrix(j,j,1,cols-1).transpose();
+                    RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
                     double determinant = new LUDecomposition(X.multiply(X_dash)).getDeterminant();
                     gramMatrix.setEntry(i,j,determinant);
                 }

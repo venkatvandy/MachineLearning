@@ -15,8 +15,8 @@
       <file leaf-file-name="Learn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cs362/Learn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="187" column="5" lean-forward="true" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
+            <state relative-caret-position="-661">
+              <caret line="141" column="14" lean-forward="false" selection-start-line="141" selection-start-column="14" selection-end-line="141" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,12 +27,12 @@
       <file leaf-file-name="KernelLogisticRegression.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cs362/KernelLogisticRegression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+            <state relative-caret-position="661">
+              <caret line="158" column="81" lean-forward="false" selection-start-line="158" selection-start-column="81" selection-end-line="158" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3448#3449#0" expanded="true" />
-                <element signature="e#3489#3490#0" expanded="true" />
+                <element signature="e#3520#3521#0" expanded="true" />
+                <element signature="e#3561#3562#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -768,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cs362/Learn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="187" column="5" lean-forward="true" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
+        <state relative-caret-position="-661">
+          <caret line="141" column="14" lean-forward="false" selection-start-line="141" selection-start-column="14" selection-end-line="141" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -778,12 +778,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cs362/KernelLogisticRegression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+        <state relative-caret-position="661">
+          <caret line="158" column="81" lean-forward="false" selection-start-line="158" selection-start-column="81" selection-end-line="158" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3448#3449#0" expanded="true" />
-            <element signature="e#3489#3490#0" expanded="true" />
+            <element signature="e#3520#3521#0" expanded="true" />
+            <element signature="e#3561#3562#0" expanded="true" />
           </folding>
         </state>
       </provider>
