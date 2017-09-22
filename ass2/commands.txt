@@ -42,10 +42,30 @@ java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file bio.naive_bayes.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.dev -predictions_file bio.dev.naive_bayes.predictions -task classification
 
+With lambda - 93.5
+
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm naive_bayes -model_file hard.naive_bayes.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\hard.train -task classification
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file hard.naive_bayes.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\hard.dev -predictions_file hard.dev.naive_bayes.predictions -task classification
+
+
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm naive_bayes -model_file easy.naive_bayes.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\easy.train -task classification
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file easy.naive_bayes.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\easy.dev -predictions_file easy.dev.naive_bayes.predictions -task classification
+
+With or without lambda - 100%
+
+
+
+
+
 python compute_regression_accuracy.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\data\bio.dev E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass2\lib\bio.dev.naive_bayes.predictions
 
 Error = 0.025
 Accuracy - 97.5
+Accuracy - 93.5
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Speech
 
