@@ -14,10 +14,11 @@ public class KernelLogisticRegression extends Predictor {
     int gradient_ascent_training_iterations;
     int N;
     BlockRealMatrix gramMatrix;
+    BlockRealMatrix newGramMatrix;
     BlockRealMatrix featureMatrix;
+    BlockRealMatrix newfeatureMatrix;
     BlockRealMatrix alpha;
     int cols;
-    List<Instance> total_instances;
     static int count = 1;
 
     public KernelLogisticRegression(List<Instance> instances,String kernel,double polynomial_kernel_exponent,
@@ -28,52 +29,48 @@ public class KernelLogisticRegression extends Predictor {
         this.gradient_ascent_learning_rate = gradient_ascent_learning_rate;
         this.gradient_ascent_training_iterations = gradient_ascent_training_iterations;
         N = instances.size();
-        cols = instances.get(0).getFeatureVector().FeatureVector.size()+1;
+        //cols = instances.get(0).getFeatureVector().FeatureVector.size()+1;
+        cols = getMaxKey(instances) +1 ;
         alpha = new BlockRealMatrix(1,N+1);
-        total_instances = instances;
 
-        int i=1;
-        int j=1;
+        int i;
 
         for(i=0;i<cols;i++){
             alpha.setEntry(0,i,0);
         }
 
-        i=1;
-
         featureMatrix = new BlockRealMatrix(N+1,cols);
-        for (Instance instance : instances) {
-            FeatureVector fv = instance.getFeatureVector();
-            HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
 
-            for(HashMap.Entry<Integer,Double> m:hashMapfv.entrySet()) {
-                featureMatrix.setEntry(i,j,m.getValue());
-                j++;
-            }
-            i++;
-            j=1;
-        }
+        makeFeatureMatrix(instances);
 
         //print_matrix(featureMatrix);
 
-
         gramMatrix = new BlockRealMatrix(N+1,N+1);
 
-        calculate_gram_matrix(instances);
-
-        gramMatrix = gramMatrix.transpose();
-        /*if(kernel.equalsIgnoreCase("linear_kernel"))
-            LinearKernelLogisticRegression lklr = new LinearKernelLogisticRegression(instances, kernel, polynomial_kernel_exponent, gaussian_kernel_sigma, gradient_ascent_learning_rate, gradient_ascent_training_iterations);
-        else if(kernel.equalsIgnoreCase("polynomial_kernel"))
-            asdsa;
-        else*/
-
+        calculateGramMatrix(instances);
 
     }
+
+    int getMaxKey(List<Instance> instances){
+
+        int max_key = 0;
+        for (Instance instance : instances) {
+            FeatureVector fv = instance.getFeatureVector();
+            HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+            for (HashMap.Entry<Integer, Double> m : hashMapfv.entrySet()) {
+                if (m.getKey() > max_key) {
+                    max_key = m.getKey();
+                }
+            }
+        }
+        return max_key;
+    }
+
     @Override
     public void train(List<Instance> instances) {
         double z;
         double derivative;
+        BlockRealMatrix alpha_temp = new BlockRealMatrix(1,N+1);
 
         for(int p=0;p<gradient_ascent_training_iterations;p++) {
             for (int k = 1; k < N + 1; k++) {  // iterate over each alpha_k
@@ -83,12 +80,14 @@ public class KernelLogisticRegression extends Predictor {
                     for (int j = 1; j < N + 1; j++) {
                         z = z + alpha.getEntry(0, j) * gramMatrix.getEntry(j, i);
                     }
-                    derivative = derivative + Integer.parseInt(instances.get(i-1).getLabel().toString()) * g(-z) * gramMatrix.getEntry(i, k) +
+                    derivative = derivative + Integer.parseInt(instances.get(i-1).getLabel().toString()) * g((-1*z)) * gramMatrix.getEntry(i, k) +
                             (1 - Integer.parseInt(instances.get(i-1).getLabel().toString())) * g(z) * (-1 * gramMatrix.getEntry(i, k));
                 }
                 double val = alpha.getEntry(0, k) + (gradient_ascent_learning_rate * derivative);
-                alpha.setEntry(0, k, val);
+                alpha_temp.setEntry(0,k,val);
+                //alpha.setEntry(0, k, val);
             }
+            alpha.setRowMatrix(0,alpha_temp);
             //print_matrix(alpha);
         }
     }
@@ -97,42 +96,30 @@ public class KernelLogisticRegression extends Predictor {
         return 1/(1+Math.exp(-z));
     }
 
+    public void makeFeatureMatrix(List<Instance> instances){
+        int i=1;
+        for (Instance instance : instances) {
+            FeatureVector fv = instance.getFeatureVector();
+            HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+
+            for(HashMap.Entry<Integer,Double> m:hashMapfv.entrySet()) {
+                featureMatrix.setEntry(i,m.getKey(),m.getValue());
+            }
+            i++;
+        }
+    }
+
     @Override
     public Label predict(Instance instance) {
         double val =0;
-        int j=1;
-        BlockRealMatrix currentFeatureVector = new BlockRealMatrix(1,N+1);
-        int required_index=-1;
+        int j;
 
+        //System.out.print("\n"+count);
 
-        /*for(j=0;j<total_instances.size();j++){
-            if(instance.equals(total_instances.get(j))){
-                required_index = j+1;
-            }
-        }*/
-
-        /*FeatureVector fv = instance.getFeatureVector();
-        HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
-
-        for(HashMap.Entry<Integer,Double> m:hashMapfv.entrySet()) {
-            currentFeatureVector.setEntry(0,j,m.getValue());
-            j++;
-        }
-
-        print_matrix(currentFeatureVector);
+        makeNewGramMatrix(instance);
 
         for(j=1;j<N+1;j++){
-            if(Arrays.equals(featureMatrix.getRow(j),currentFeatureVector.getRow(0))){
-                required_index = j;
-                break;
-            }
-        }*/
-
-
-        System.out.print("\n"+count);
-
-        for(j=1;j<N+1;j++){
-            val = val + (alpha.getEntry(0,j)*gramMatrix.getEntry(j,count));
+            val = val + (alpha.getEntry(0,j)*newGramMatrix.getEntry(0,j));
         }
 
         count++;
@@ -145,18 +132,43 @@ public class KernelLogisticRegression extends Predictor {
         }
     }
 
-    public void calculate_gram_matrix(List<Instance> instances){
+    public void makeNewGramMatrix(Instance  instance){
+        int j;
+        newGramMatrix = new BlockRealMatrix(1,N+1);
+        // Initialize with 0's
+        //RealMatrix X = featureMatrix.getRowMatrix(count);
+        BlockRealMatrix X = new BlockRealMatrix(1,cols);
+        BlockRealMatrix X_dash;
+
+        //RealMatrix X_dash;
+
+        //Construct 1-d matrix for the test feature vector
+        FeatureVector fv = instance.getFeatureVector();
+        HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+        for(HashMap.Entry<Integer,Double> m:hashMapfv.entrySet()) {
+            X.setEntry(0,m.getKey(),m.getValue());
+        }
+
+        //BlockRealMatrix X_dash = new BlockRealMatrix(1,cols);
+        for(j=1;j<N+1;j++){
+            //RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+            X_dash = featureMatrix.getRowMatrix(j).transpose();
+            double determinant = new LUDecomposition(X.multiply(X_dash)).getDeterminant();
+            newGramMatrix.setEntry(0,j,determinant);
+        }
+    }
+
+    public void calculateGramMatrix(List<Instance> instances){
         if(kernel.equalsIgnoreCase("linear_kernel")){
-            int i=1;
-            int j=1;
+            int i;
+            int j;
 
             for(i=1;i<N+1;i++){
-                //RealMatrix X = featureMatrix.getSubMatrix(i,i,1,cols-1);
-                RealMatrix X = featureMatrix.getRowMatrix(i);
+                //RealMatrix X = featureMatrix.getRowMatrix(i);
+                BlockRealMatrix X = featureMatrix.getRowMatrix(i);
                 for(j=1;j<N+1;j++){
-
-                    //RealMatrix X_dash = featureMatrix.getSubMatrix(j,j,1,cols-1).transpose();
-                    RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+                    //RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+                    BlockRealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
                     double determinant = new LUDecomposition(X.multiply(X_dash)).getDeterminant();
                     gramMatrix.setEntry(i,j,determinant);
                 }
