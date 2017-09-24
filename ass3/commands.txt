@@ -144,6 +144,60 @@ java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file circle.kernel_Logistic_linear.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.dev -predictions_file circle.dev.kernel_linear.predictions -task classification
 
+****
+
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm kernel_logistic_regression -model_file easy.kernel_Logistic_linear.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\easy.train -task classification
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file easy.kernel_Logistic_linear.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\easy.dev -predictions_file easy.dev.kernel_linear.predictions -task classification
+
+*******
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm kernel_logistic_regression -model_file easy.kernel_Logistic_poly.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\easy.train -task classification -kernel polynomial_kernel -polynomial_kernel_exponent 2
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file easy.kernel_Logistic_poly.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\easy.dev -predictions_file easy.dev.kernel_poly.predictions -task classification -kernel polynomial_kernel -polynomial_kernel_exponent 2
+
+********
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm kernel_logistic_regression -model_file circle.kernel_Logistic_poly.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.train -task classification -kernel polynomial_kernel -polynomial_kernel_exponent 2
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file circle.kernel_Logistic_poly.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.dev -predictions_file circle.dev.kernel_poly.predictions -task classification -kernel polynomial_kernel -polynomial_kernel_exponent 2
+
+*****
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm kernel_logistic_regression -model_file circle.kernel_Logistic_gaussian.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.train -task classification -kernel gaussian_kernel -gaussian_kernel_sigma 1
+
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file circle.kernel_Logistic_gaussian.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.dev -predictions_file circle.dev.kernel_gaussian.predictions -task classification -kernel gaussian_kernel -gaussian_kernel_sigma 1
+
+*********8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

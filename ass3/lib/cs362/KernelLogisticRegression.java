@@ -133,28 +133,87 @@ public class KernelLogisticRegression extends Predictor {
     }
 
     public void makeNewGramMatrix(Instance  instance){
-        int j;
-        newGramMatrix = new BlockRealMatrix(1,N+1);
-        // Initialize with 0's
-        //RealMatrix X = featureMatrix.getRowMatrix(count);
-        BlockRealMatrix X = new BlockRealMatrix(1,cols);
-        BlockRealMatrix X_dash;
+        if(kernel.equalsIgnoreCase("linear_kernel")) {
+            int j;
+            newGramMatrix = new BlockRealMatrix(1, N + 1);
+            // Initialize with 0's
+            //RealMatrix X = featureMatrix.getRowMatrix(count);
+            BlockRealMatrix X = new BlockRealMatrix(1, cols);
+            BlockRealMatrix X_dash;
 
-        //RealMatrix X_dash;
+            //RealMatrix X_dash;
 
-        //Construct 1-d matrix for the test feature vector
-        FeatureVector fv = instance.getFeatureVector();
-        HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
-        for(HashMap.Entry<Integer,Double> m:hashMapfv.entrySet()) {
-            X.setEntry(0,m.getKey(),m.getValue());
+            //Construct 1-d matrix for the test feature vector
+            FeatureVector fv = instance.getFeatureVector();
+            HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+            for (HashMap.Entry<Integer, Double> m : hashMapfv.entrySet()) {
+                X.setEntry(0, m.getKey(), m.getValue());
+            }
+
+            //BlockRealMatrix X_dash = new BlockRealMatrix(1,cols);
+            for (j = 1; j < N + 1; j++) {
+                //RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+                X_dash = featureMatrix.getRowMatrix(j).transpose();
+                double determinant = new LUDecomposition(X.multiply(X_dash)).getDeterminant();
+                newGramMatrix.setEntry(0, j, determinant);
+            }
         }
+        else if(kernel.equalsIgnoreCase("polynomial_kernel")){
+            int j;
+            newGramMatrix = new BlockRealMatrix(1, N + 1);
+            // Initialize with 0's
+            //RealMatrix X = featureMatrix.getRowMatrix(count);
+            BlockRealMatrix X = new BlockRealMatrix(1, cols);
+            BlockRealMatrix X_dash;
 
-        //BlockRealMatrix X_dash = new BlockRealMatrix(1,cols);
-        for(j=1;j<N+1;j++){
-            //RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
-            X_dash = featureMatrix.getRowMatrix(j).transpose();
-            double determinant = new LUDecomposition(X.multiply(X_dash)).getDeterminant();
-            newGramMatrix.setEntry(0,j,determinant);
+            //RealMatrix X_dash;
+
+            //Construct 1-d matrix for the test feature vector
+            FeatureVector fv = instance.getFeatureVector();
+            HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+            for (HashMap.Entry<Integer, Double> m : hashMapfv.entrySet()) {
+                X.setEntry(0, m.getKey(), m.getValue());
+            }
+
+            //BlockRealMatrix X_dash = new BlockRealMatrix(1,cols);
+            for (j = 1; j < N + 1; j++) {
+                //RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+                X_dash = featureMatrix.getRowMatrix(j).transpose();
+                double determinant = new LUDecomposition(X.multiply(X_dash)).getDeterminant();
+                newGramMatrix.setEntry(0,j,Math.pow(1+ determinant,polynomial_kernel_exponent));
+                //newGramMatrix.setEntry(0, j, determinant);
+            }
+        }
+        else {
+            int j,k;
+            double sum;
+            newGramMatrix = new BlockRealMatrix(1, N + 1);
+            // Initialize with 0's
+            //RealMatrix X = featureMatrix.getRowMatrix(count);
+            BlockRealMatrix X = new BlockRealMatrix(1, cols);
+            BlockRealMatrix X_dash;
+
+            //RealMatrix X_dash;
+
+            //Construct 1-d matrix for the test feature vector
+            FeatureVector fv = instance.getFeatureVector();
+            HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+            for (HashMap.Entry<Integer, Double> m : hashMapfv.entrySet()) {
+                X.setEntry(0, m.getKey(), m.getValue());
+            }
+
+            //BlockRealMatrix X_dash = new BlockRealMatrix(1,cols);
+            for (j = 1; j < N + 1; j++) {
+                //RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+                X_dash = featureMatrix.getRowMatrix(j);
+                sum = 0 ;
+                for(k=1;k<cols;k++){
+                    sum = sum + Math.pow (X.getEntry(0,k) - X_dash.getEntry(0,k),2) ;
+                }
+                sum = sum * -1;
+                sum = sum/(2*Math.pow(gaussian_kernel_sigma,2));
+                newGramMatrix.setEntry(0,j,Math.exp(sum));
+            }
         }
     }
 
@@ -171,6 +230,44 @@ public class KernelLogisticRegression extends Predictor {
                     BlockRealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
                     double determinant = new LUDecomposition(X.multiply(X_dash)).getDeterminant();
                     gramMatrix.setEntry(i,j,determinant);
+                }
+            }
+        }
+        else if(kernel.equalsIgnoreCase("polynomial_kernel")){
+            int i;
+            int j;
+
+            for(i=1;i<N+1;i++){
+                //RealMatrix X = featureMatrix.getRowMatrix(i);
+                BlockRealMatrix X = featureMatrix.getRowMatrix(i);
+                for(j=1;j<N+1;j++){
+                    //RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+                    BlockRealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+                    double determinant = new LUDecomposition(X.multiply(X_dash)).getDeterminant();
+                    gramMatrix.setEntry(i,j,Math.pow(1+ determinant,polynomial_kernel_exponent));
+                    //gramMatrix.setEntry(i,j,determinant);
+                }
+            }
+        }
+        else{
+            int i;
+            int j;
+            int k;
+            double sum=0;
+
+            for(i=1;i<N+1;i++){
+                //RealMatrix X = featureMatrix.getRowMatrix(i);
+                BlockRealMatrix X = featureMatrix.getRowMatrix(i);
+                for(j=1;j<N+1;j++){
+                    sum=0;
+                    //RealMatrix X_dash = featureMatrix.getRowMatrix(j).transpose();
+                    BlockRealMatrix X_dash = featureMatrix.getRowMatrix(j);
+                    for(k=1;k<cols;k++){
+                        sum = sum + Math.pow (X.getEntry(0,k) - X_dash.getEntry(0,k),2) ;
+                    }
+                    sum = sum * -1;
+                    sum = sum/(2*Math.pow(gaussian_kernel_sigma,2));
+                    gramMatrix.setEntry(i,j,Math.exp(sum));
                 }
             }
         }

@@ -27,8 +27,8 @@
       <file leaf-file-name="KernelLogisticRegression.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cs362/KernelLogisticRegression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="170" column="42" lean-forward="true" selection-start-line="170" selection-start-column="42" selection-end-line="170" selection-end-column="42" />
+            <state relative-caret-position="378">
+              <caret line="200" column="43" lean-forward="false" selection-start-line="200" selection-start-column="43" selection-end-line="200" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3404#3405#0" expanded="true" />
@@ -130,6 +130,9 @@
       <find>cal</find>
       <find>predi</find>
       <find>total_instances</find>
+      <find>calculateGramMatrix</find>
+      <find>poly</find>
+      <find>makeNewGramMatrix</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -212,7 +215,91 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestLinearKernelEasy">
+  <component name="RunManager" selected="Application.GaussianCircleTest">
+    <configuration name="GaussianCircleTest" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode test -model_file circle.kernel_Logistic_gaussian.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.dev -predictions_file circle.dev.kernel_gaussian.predictions -task classification -kernel gaussian_kernel -gaussian_kernel_sigma 1" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="GaussianCircleTrain" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode train -algorithm kernel_logistic_regression -model_file circle.kernel_Logistic_gaussian.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.train -task classification -kernel gaussian_kernel -gaussian_kernel_sigma 1" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="PolyCircleTest" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode test -model_file circle.kernel_Logistic_poly.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.dev -predictions_file circle.dev.kernel_poly.predictions -task classification -kernel polynomial_kernel -polynomial_kernel_exponent 2" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="PolyCircleTrain" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode train -algorithm kernel_logistic_regression -model_file circle.kernel_Logistic_poly.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\circle.train -task classification -kernel polynomial_kernel -polynomial_kernel_exponent 2" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="PolyEastTest" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode test -model_file easy.kernel_Logistic_poly.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\easy.dev -predictions_file easy.dev.kernel_poly.predictions -task classification -kernel polynomial_kernel -polynomial_kernel_exponent 2" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="PolyEasyTrain" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode train -algorithm kernel_logistic_regression -model_file easy.kernel_Logistic_poly.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\data\easy.train -task classification -kernel polynomial_kernel -polynomial_kernel_exponent 2" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
     <configuration name="TestLinearKernel" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
@@ -350,11 +437,17 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="4">
+    <list size="10">
       <item index="0" class="java.lang.String" itemvalue="Application.Train_LinearKernel" />
       <item index="1" class="java.lang.String" itemvalue="Application.TrainLinearKernelEasy" />
       <item index="2" class="java.lang.String" itemvalue="Application.TestLinearKernelEasy" />
-      <item index="3" class="java.lang.String" itemvalue="Application.TestLinearKernel" />
+      <item index="3" class="java.lang.String" itemvalue="Application.PolyEasyTrain" />
+      <item index="4" class="java.lang.String" itemvalue="Application.PolyEastTest" />
+      <item index="5" class="java.lang.String" itemvalue="Application.TestLinearKernel" />
+      <item index="6" class="java.lang.String" itemvalue="Application.PolyCircleTrain" />
+      <item index="7" class="java.lang.String" itemvalue="Application.PolyCircleTest" />
+      <item index="8" class="java.lang.String" itemvalue="Application.GaussianCircleTrain" />
+      <item index="9" class="java.lang.String" itemvalue="Application.GaussianCircleTest" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -382,7 +475,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2196468" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -856,8 +949,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cs362/KernelLogisticRegression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="170" column="42" lean-forward="true" selection-start-line="170" selection-start-column="42" selection-end-line="170" selection-end-column="42" />
+        <state relative-caret-position="378">
+          <caret line="200" column="43" lean-forward="false" selection-start-line="200" selection-start-column="43" selection-end-line="200" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3404#3405#0" expanded="true" />
