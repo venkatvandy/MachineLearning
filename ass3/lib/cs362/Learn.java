@@ -212,7 +212,6 @@ Learn {
 		registerOption("gaussian_kernel_sigma", "double", true, "The sigma of the Gaussian kernel.");
 		registerOption("gradient_ascent_learning_rate", "double", true, "The learning rate for logistic regression.");
 		registerOption("gradient_ascent_training_iterations", "int", true, "The number of training iterations.");
-
 		// Other options will be added here.
 	}
 }
