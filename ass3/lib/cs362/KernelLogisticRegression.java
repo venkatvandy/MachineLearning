@@ -18,6 +18,7 @@ public class KernelLogisticRegression extends Predictor {
     BlockRealMatrix featureMatrix;
     BlockRealMatrix newfeatureMatrix;
     BlockRealMatrix alpha;
+    BlockRealMatrix alphaGramCache;
     int cols;
     static int count = 1;
 
@@ -68,27 +69,29 @@ public class KernelLogisticRegression extends Predictor {
 
     @Override
     public void train(List<Instance> instances) {
-        double z;
+        double z=0;
         double derivative;
         BlockRealMatrix alpha_temp = new BlockRealMatrix(1,N+1);
+        alphaGramCache = new BlockRealMatrix(1,N+1);
 
         for(int p=0;p<gradient_ascent_training_iterations;p++) {
+            for(int b=1;b<N+1;b++) {
+                z=0;
+                for (int a = 1; a < N + 1; a++) {
+                    z = z + alpha.getEntry(0, a) * gramMatrix.getEntry(a, b);
+                }
+                alphaGramCache.setEntry(0,b,z);
+            }
             for (int k = 1; k < N + 1; k++) {  // iterate over each alpha_k
                 derivative = 0;
                 for (int i = 1; i < N + 1; i++) { //iterate over each y_i
-                    z = 0;
-                    for (int j = 1; j < N + 1; j++) {
-                        z = z + alpha.getEntry(0, j) * gramMatrix.getEntry(j, i);
-                    }
-                    derivative = derivative + Integer.parseInt(instances.get(i-1).getLabel().toString()) * g((-1*z)) * gramMatrix.getEntry(i, k) +
-                            (1 - Integer.parseInt(instances.get(i-1).getLabel().toString())) * g(z) * (-1 * gramMatrix.getEntry(i, k));
+                    derivative = derivative + Integer.parseInt(instances.get(i-1).getLabel().toString()) * g(-1*alphaGramCache.getEntry(0,i)) * gramMatrix.getEntry(i, k) +
+                            (1 - Integer.parseInt(instances.get(i-1).getLabel().toString())) * g(alphaGramCache.getEntry(0,i)) * (-1 * gramMatrix.getEntry(i, k));
                 }
                 double val = alpha.getEntry(0, k) + (gradient_ascent_learning_rate * derivative);
                 alpha_temp.setEntry(0,k,val);
-                //alpha.setEntry(0, k, val);
             }
             alpha.setRowMatrix(0,alpha_temp);
-            //print_matrix(alpha);
         }
     }
 
