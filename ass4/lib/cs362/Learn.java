@@ -157,7 +157,7 @@ Learn {
 			}
 		}
 		double clrate = accuracy*100/total;
-		System.out.println("\n\n****Accuracy****: "+ clrate);
+		//System.out.println("\n\n****Accuracy****: "+ clrate);
 
 		writer.close();
 		

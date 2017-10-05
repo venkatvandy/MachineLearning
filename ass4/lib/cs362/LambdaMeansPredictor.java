@@ -174,7 +174,8 @@ public class LambdaMeansPredictor extends Predictor {
                 required_cluster_index = m.getKey();
             }
         }
-        
+
+        return new ClassificationLabel(required_cluster_index);
     }
 
     public void calculate_mean_of_all_instances(List<Instance> instances){
