@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Learn.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Learn.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cs362/Learn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="133" column="119" lean-forward="true" selection-start-line="133" selection-start-column="74" selection-end-line="133" selection-end-column="119" />
+            <state relative-caret-position="160">
+              <caret line="204" column="40" lean-forward="true" selection-start-line="204" selection-start-column="40" selection-end-line="204" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#553#561#0" expanded="true" />
@@ -25,26 +25,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KernelLogisticRegression.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cs362/KernelLogisticRegression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="59" column="66" lean-forward="false" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cs362/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="399">
+              <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#148#165#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,9 +41,21 @@
         <entry file="file://$PROJECT_DIR$/cs362/LambdaMeansPredictor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
-              <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+              <caret line="96" column="29" lean-forward="true" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayRealVector.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/commons-math3-3.6.1.jar!/org/apache/commons/math3/linear/ArrayRealVector.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding>
+                <element signature="e#1283#1284#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +72,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cs362</find>
-      <find>DataReader</find>
       <find>evaluateAndSavePredictions</find>
       <find>transpoe</find>
       <find>label</find>
@@ -97,6 +94,14 @@
       <find>cluster_la</find>
       <find>lmp</find>
       <find>getMaxKey</find>
+      <find>mean</find>
+      <find>make</find>
+      <find>clusterInd</find>
+      <find>cluster_lam</find>
+      <find>calculate_lambda</find>
+      <find>clusterIndicator</find>
+      <find>predic</find>
+      <find>clustering_training_iterations</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -113,10 +118,10 @@
         <option value="$PROJECT_DIR$/cs362/PerceptronClassifier.java" />
         <option value="$PROJECT_DIR$/cs362/kernel_logistic_regression.java" />
         <option value="$PROJECT_DIR$/cs362/LinearKernelLogisticRegression.java" />
-        <option value="$PROJECT_DIR$/cs362/Learn.java" />
-        <option value="$PROJECT_DIR$/cs362/LambdaMeansPredictor.java" />
         <option value="$PROJECT_DIR$/cs362/KernelLogisticRegression.java" />
         <option value="$PROJECT_DIR$/cs362/test.java" />
+        <option value="$PROJECT_DIR$/cs362/LambdaMeansPredictor.java" />
+        <option value="$PROJECT_DIR$/cs362/Learn.java" />
       </list>
     </option>
   </component>
@@ -159,8 +164,8 @@
       </pane>
       <pane id="AndroidView" />
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -181,7 +186,91 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.ClusterSpeechTrain">
+    <configuration name="ClusterBioTest" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode test -model_file bio.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\bio.dev -predictions_file bio.dev.lambda_means.predictions -task classification" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="ClusterBioTrain" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode train -algorithm lambda_means -model_file bio.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\bio.train -task classification -clustering_training_iterations 50 -cluster_lambda 0" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="ClusterSpeechTest" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode test -model_file speech.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\speech.dev -predictions_file speech.dev.lambda_means.predictions -task classification" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="ClusterSpeechTrain" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode train -algorithm lambda_means -model_file speech.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\speech.train -task classification -clustering_training_iterations 50 -cluster_lambda 0" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="ClusterVisionTest" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode test -model_file vision.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\vision.dev -predictions_file vision.dev.lambda_means.predictions -task classification" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="ClusterVisionTrain" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-mode train -algorithm lambda_means -model_file vision.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\vision.train -task classification -clustering_training_iterations 50 -cluster_lambda 0" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
     <configuration name="GaussianCircleTest" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
@@ -450,20 +539,26 @@
       <module name="lib" />
       <envs />
     </configuration>
-    <list size="13">
-      <item index="0" class="java.lang.String" itemvalue="Application.LinearCircleTrain" />
-      <item index="1" class="java.lang.String" itemvalue="Application.LinearEasyTrain" />
-      <item index="2" class="java.lang.String" itemvalue="Application.LinearEasyTest" />
-      <item index="3" class="java.lang.String" itemvalue="Application.PolyEasyTrain" />
-      <item index="4" class="java.lang.String" itemvalue="Application.PolyEasyTest" />
-      <item index="5" class="java.lang.String" itemvalue="Application.LinearCircleTest" />
-      <item index="6" class="java.lang.String" itemvalue="Application.PolyCircleTrain" />
-      <item index="7" class="java.lang.String" itemvalue="Application.PolyCircleTest" />
-      <item index="8" class="java.lang.String" itemvalue="Application.GaussianCircleTrain" />
-      <item index="9" class="java.lang.String" itemvalue="Application.GaussianCircleTest" />
-      <item index="10" class="java.lang.String" itemvalue="Application.GaussianEasyTrain" />
-      <item index="11" class="java.lang.String" itemvalue="Application.GaussianEasyTest" />
-      <item index="12" class="java.lang.String" itemvalue="Application.test" />
+    <list size="19">
+      <item index="0" class="java.lang.String" itemvalue="Application.ClusterSpeechTrain" />
+      <item index="1" class="java.lang.String" itemvalue="Application.ClusterSpeechTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.ClusterVisionTrain" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ClusterVisionTest" />
+      <item index="4" class="java.lang.String" itemvalue="Application.ClusterBioTrain" />
+      <item index="5" class="java.lang.String" itemvalue="Application.ClusterBioTest" />
+      <item index="6" class="java.lang.String" itemvalue="Application.LinearCircleTrain" />
+      <item index="7" class="java.lang.String" itemvalue="Application.LinearEasyTrain" />
+      <item index="8" class="java.lang.String" itemvalue="Application.LinearEasyTest" />
+      <item index="9" class="java.lang.String" itemvalue="Application.PolyEasyTrain" />
+      <item index="10" class="java.lang.String" itemvalue="Application.PolyEasyTest" />
+      <item index="11" class="java.lang.String" itemvalue="Application.LinearCircleTest" />
+      <item index="12" class="java.lang.String" itemvalue="Application.PolyCircleTrain" />
+      <item index="13" class="java.lang.String" itemvalue="Application.PolyCircleTest" />
+      <item index="14" class="java.lang.String" itemvalue="Application.GaussianCircleTrain" />
+      <item index="15" class="java.lang.String" itemvalue="Application.GaussianCircleTest" />
+      <item index="16" class="java.lang.String" itemvalue="Application.GaussianEasyTrain" />
+      <item index="17" class="java.lang.String" itemvalue="Application.GaussianEasyTest" />
+      <item index="18" class="java.lang.String" itemvalue="Application.test" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -505,7 +600,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6578366" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17880794" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -528,13 +623,18 @@
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cs362/LambdaMeansPredictor.java</url>
+          <line>136</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cs362/PerceptronClassifier.java" />
     <entry file="file://$PROJECT_DIR$/cs362/Instance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -756,31 +856,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cs362/PerceptronClassifier.java" />
     <entry file="file://$PROJECT_DIR$/cs362/LinearKernelLogisticRegression.java" />
-    <entry file="file://$PROJECT_DIR$/cs362/Learn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="133" column="119" lean-forward="true" selection-start-line="133" selection-start-column="74" selection-end-line="133" selection-end-column="119" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#553#561#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cs362/LambdaMeansPredictor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cs362/KernelLogisticRegression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="59" column="66" lean-forward="false" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
+        <state relative-caret-position="231">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -789,11 +868,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cs362/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        <state relative-caret-position="399">
+          <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#148#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/commons-math3-3.6.1.jar!/org/apache/commons/math3/linear/ArrayRealVector.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#1283#1284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cs362/LambdaMeansPredictor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="96" column="29" lean-forward="true" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cs362/Learn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="204" column="40" lean-forward="true" selection-start-line="204" selection-start-column="40" selection-end-line="204" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#553#561#0" expanded="true" />
           </folding>
         </state>
       </provider>

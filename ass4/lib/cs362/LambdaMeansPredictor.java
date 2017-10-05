@@ -4,10 +4,7 @@ import org.apache.commons.math3.linear.ArrayRealVector;
 import org.apache.commons.math3.linear.BlockRealMatrix;
 import org.apache.commons.math3.linear.RealVector;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 public class LambdaMeansPredictor extends Predictor {
 
@@ -33,8 +30,8 @@ public class LambdaMeansPredictor extends Predictor {
         featureMatrix = new BlockRealMatrix(rows,cols);
         makeFeatureMatrix(instances);
 
+        calculate_mean_of_all_instances(instances);
         if(cluster_lambda==0){  //since default value passed is 0 we set our own default value
-            calculate_mean_of_all_instances(instances);
             this.cluster_lambda = calculate_lambda();
         }
         else{
@@ -134,8 +131,21 @@ public class LambdaMeansPredictor extends Predictor {
                 if(count!=0) // only if cluster is not empty
                     prototype_vec.mapDivideToSelf(count);
                 //Update the prototype vector
-                cluster.put(m.getKey(),prototype_vec);
+                cluster.put(m.getKey(),prototype_vec); //if cluster empty prototype_vec will be 0
             }
+        }
+
+        //print_cluster();
+    }
+
+    private void print_cluster() {
+        List<Double> list1 = new ArrayList<>();
+        for(int i=0;i<clusterIndicator.toArray().length;i++){
+            list1.add(clusterIndicator.toArray()[i]);
+        }
+        for (HashMap.Entry<Integer, RealVector> m : cluster.entrySet()) {
+            int freq = Collections.frequency(list1,m.getKey().doubleValue());
+            System.out.print("Frequency of cluster "+m.getKey()+ " is :"+ freq+"\n");
         }
     }
 
@@ -156,10 +166,11 @@ public class LambdaMeansPredictor extends Predictor {
 
     @Override
     public Label predict(Instance instance) {
+
+        //Construct a RealVector from the instance to be predicted.
         RealVector currentVector = new ArrayRealVector(cols);
         FeatureVector fv = instance.getFeatureVector();
         HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
-
         for(HashMap.Entry<Integer,Double> m:hashMapfv.entrySet()) {
             //featureMatrix.setEntry(i,m.getKey(),m.getValue());
             currentVector.setEntry(m.getKey(),m.getValue());

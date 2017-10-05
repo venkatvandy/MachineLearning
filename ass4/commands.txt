@@ -238,7 +238,7 @@ java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass3\lib;commons
 
 Assignment 4:
 
-java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm lambda_means -model_file speech.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\speech.train -task classification
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm lambda_means -model_file speech.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\speech.train -task classification -clustering_training_iterations 10 -cluster_lambda 0
 
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file speech.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\speech.dev -predictions_file speech.dev.lambda_means.predictions -task classification
@@ -246,12 +246,17 @@ java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons
 
 python cluster_accuracy.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\speech.dev E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib\speech.dev.lambda_means.predictions
 
+python number_clusters.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib\speech.dev.lambda_means.predictions
+
+10 Iterations 
 VI : 2.752644
+
+50 Iterations
 
 ***********************
 
 
-java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm lambda_means -model_file vision.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\vision.train -task classification
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm lambda_means -model_file vision.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\vision.train -task classification -clustering_training_iterations 10 -cluster_lambda 0
 
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file vision.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\vision.dev -predictions_file vision.dev.lambda_means.predictions -task classification
@@ -263,7 +268,7 @@ VI: 1.096956
 
 ***********************
 
-java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm lambda_means -model_file bio.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\bio.train -task classification
+java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode train -algorithm lambda_means -model_file bio.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\bio.train -task classification -clustering_training_iterations 10 -cluster_lambda 0
 
 
 java -cp E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\lib;commons-cli-1.2.jar;commons-math3-3.6.1.jar cs362.Learn -mode test -model_file bio.lambda_means.model -data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\ass4\data\bio.dev -predictions_file bio.dev.lambda_means.predictions -task classification
@@ -273,8 +278,3 @@ python cluster_accuracy.py E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\H
 
 
 VI: 0.634950
-
-
-
-
-
