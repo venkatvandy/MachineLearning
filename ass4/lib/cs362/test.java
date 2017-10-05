@@ -25,7 +25,7 @@ public class test {
             }
         }
 
-        b.getRowVector(1).add()
+        //b.getRowVector(1).add()
 
 
         /*

@@ -50,6 +50,7 @@ public class LambdaMeansPredictor extends Predictor {
         cluster = new HashMap<>();
         cluster.put(1,mean);
         //clusterIndicator.add(0,-1);
+        clusterIndicator = new ArrayRealVector(rows);
     }
 
     private double calculate_lambda() {
@@ -114,7 +115,8 @@ public class LambdaMeansPredictor extends Predictor {
                     clusterIndicator.setEntry(i,cluster_index);
                 }
                 else {
-                    addNewCluster(temp);
+                    int new_cluster_index = addNewCluster(temp);
+                    clusterIndicator.setEntry(i,new_cluster_index);
                 }
             }
 
@@ -122,22 +124,25 @@ public class LambdaMeansPredictor extends Predictor {
 
             for(HashMap.Entry<Integer,RealVector> m:cluster.entrySet()) {
                 RealVector prototype_vec = new ArrayRealVector(cols);
+                int count = 0;
                 for(int i=1;i<rows;i++){
                     if(clusterIndicator.getEntry(i)==m.getKey()){ //the instance belongs to this cluster
+                            count++;
                             prototype_vec = prototype_vec.add(featureMatrix.getRowVector(i));
-
                     }
                 }
-
+                if(count!=0) // only if cluster is not empty
+                    prototype_vec.mapDivideToSelf(count);
+                //Update the prototype vector
+                cluster.put(m.getKey(),prototype_vec);
             }
-
-
         }
     }
 
-    private void addNewCluster(RealVector v) {
+    private int addNewCluster(RealVector v) {
         int new_key = Collections.max(cluster.keySet())+1;
         cluster.put(new_key,v);
+        return new_key;
     }
 
     //private double getSquaredEuclidianDistance(RealVector temp, Vector<Double> value) {
@@ -151,7 +156,25 @@ public class LambdaMeansPredictor extends Predictor {
 
     @Override
     public Label predict(Instance instance) {
-        return null;
+        RealVector currentVector = new ArrayRealVector(cols);
+        FeatureVector fv = instance.getFeatureVector();
+        HashMap<Integer, Double> hashMapfv = fv.FeatureVector;
+
+        for(HashMap.Entry<Integer,Double> m:hashMapfv.entrySet()) {
+            //featureMatrix.setEntry(i,m.getKey(),m.getValue());
+            currentVector.setEntry(m.getKey(),m.getValue());
+        }
+
+        int required_cluster_index = 1;
+        double min_distance = getSquaredEuclideanDistance(currentVector,cluster.get(1));
+        for (HashMap.Entry<Integer, RealVector> m : cluster.entrySet()) {
+            double new_distance = getSquaredEuclideanDistance(currentVector,m.getValue());
+            if(new_distance<min_distance){
+                min_distance = new_distance;
+                required_cluster_index = m.getKey();
+            }
+        }
+        
     }
 
     public void calculate_mean_of_all_instances(List<Instance> instances){
