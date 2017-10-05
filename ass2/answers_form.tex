@@ -33,153 +33,102 @@
 \maketitle
 
 \paragraph{Question 1:}
-\begin{enumerate}[(a)]
-\item \begin{enumerate}[(1)]
-\item
-\[
-	f(X=x;p) = \binom{n}{x} p^x (1-p)^{n-x}
-\]
-\[
-	\binom{n}{x}e^{xlnp + (n-x)ln(1-p)}
-\]
-\[
-	\binom{n}{x}e^{x[lnp - ln(1-p)] + nln(1-p)}
-\]
-\[
-	\binom{n}{x}e^{xln \frac {p}{1-p} + nln(1-p)}
-\]
-\[
-	h(x)=\binom{n}{x}, \eta(\theta) = ln\frac {p}{1-p}, T(x) = x
-\]
-\[
-	A(\theta) = -nln(1-p)
-\]
-\bigskip
-\item
-\[
-	f(X=x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!}
-\]
-\[
-	\frac{1}{x!} e^{xln\lambda - \lambda}
-\]
-\[
-	h(x)=1/x!, \eta(\theta) = ln\lambda, T(x) = x, A(\theta) = \lambda
-\]
-\bigskip
-\item
-\[
-	f(X=x;\mu) = \frac{1}{\sqrt{2\pi\sigma}} e ^{\frac{-(X-\mu)^2}{2\sigma^2}}
-\]
-\[
-	= \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2} - \frac{\mu^2}{2\sigma^2} + \frac{2x\mu}{2\sigma^2} - \frac{log\sigma}{2}} 
-\]
-\[
-	= \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}} e^{(x)(\frac{\mu}{\sigma^2}) - \frac{\mu^2}{\sigma^2} + \frac{log\sigma}{2} }
-\]
-\[
-	h(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}	
-\]
-\[
-	T(x) = x, \eta(\theta) = \frac{\mu}{\sigma^2}, A(\theta) = \frac{\mu^2}{2\sigma^2} + \frac{log\sigma}{2}
-\]
-\end{enumerate}
-\bigskip
-\item
-
-From 1(a)(2) we know that 
-$\eta$($\theta$) = log $\lambda$ 
-
-\[
-	f(Y=y;\lambda) = \frac{\lambda^y e^{-\lambda}}{y!}
-\]
-
-Let
-\[
-	X_i = { X_{1i},X_{2i},... X_{ni} }
-\]
-
-Mean $\lambda_i$ is
-
-\[
-	Expectation[y_i|X_1,X_2,....X_n] = e^{\alpha_0 + \alpha_1x_1+...+ \alpha_nx_n} 
-\]
-
-\[
-	log\lambda_i = \alpha_0 + \alpha_1x_1+...+ \alpha_nx_n
-\]
-
-Likelihood function will be 
-\[
-	L(y,W,\lambda) = \prod_{i=1}^n \frac{e^{\lambda_i} \lambda_i^{y_i}}{y_i!}
-\]
-
-Log likelihood would be
-
-\[
-	l(y,w,\lambda) = \sum_{i=1}^{n}[-\lambda_i + y_1log(\lambda_i) - log(y_i!)]
-\]
-
-
-
-
-\bigskip
-\item
-
-GLMs have non-linear transformation and yet are called linear because the final predictions are always a sum of product of the input values and their associated weights. The way weights are calculated is where the method can become non-linear. For example if you consider a 2-d plane then the weights that are required would be the slope and the intercept but as the number of weights increase the dimensions increase which makes in non-linear to calculate the actual value of weights.
-
-\end{enumerate}
 
 \paragraph{Question 2:}
 
-According to conditional probability  \newline
-P(Y,Xd1,Xd2,....,Xd) = P(X1,X2,...,Xd|Y)P(Y)
-
-as all the features are iid.
-\newline \newline
-
-P(Y,X1,X2,....,Xd) = P(X1|Y)P(X2|Y)...P(X(d-1)|Y)P(Xd|Y)P(Y)
-
-As we know that Xd is unknown we have to iterate and sum over all possible values of Xd.
-
-\[
-	\sum_{X_d} P(X_1|Y)P(X_2|Y)...P(X_d|Y)P(Y)
-\]
-
-\[
-	P(X_1|Y)P(X_2|Y)...\sum_{X_d}P(X_d|Y)P(Y)
-\]
-
-The total sum of prob will be 1.
-
-\[
-	=P(X_1|Y)P(X_2|Y)...P(Y)
-\]
-
-\[
-	P(Y,X_1,X_2,....,X_{d-1})
-\]
-
 
 \paragraph{Question 3:}
+\begin{enumerate}[(a)]
+\item
 
-By adding $\lambda$ smoothing we try to weigh in features which are not present in the training set by adding $\lambda$ to their count. This makes sure the even unseen features have some probability during test time. As given in the equation we can see that this $\lambda$ is added both in the numerator and the denominator. So we can say that a high $\lambda$ will lead to a high bias and small variance because when $\lambda$ is sufficiently large we will get a large constant bias. Also vice-versa when $\lambda$ is small we get small bias and large variance.
+\item
+\end{enumerate}
 
 \paragraph{Question 4:}
 \begin{enumerate}[(a)]
 \item
-The computational complexity of computing the gradient at each iteration would be O(kn)
-\bigskip
-\item
-As we increase k, the computation in each iteration increases but we converge faster to the local minimum i.e the path that we take to get to the local minimum becomes more and more straighter instead of being zigzag.
-As k decreases , the computation in each iteration becomes lighter but we converge slower to the local minimum i.e the path we take to get to the local minimum becomes zigzag and longer.
 
-\bigskip
 \item
-An example of an algorithm that uses stochastic gradient would be a Perceptron Classifier.
-We see that in most classifiers we process the whole batch of data first and then try to minimize the cost function based on the whole training set. But in Perceptron classifier it updates the weight incrementally after it encounters each individual training sample. This is nothing but stochastic gradient descent.
-We use it so as to converge faster because we update weights after each training sample.
+
+\item
 
 \end{enumerate}
+
+\paragraph{Question 5:}
+\begin{enumerate}[(a)]
+\item
+
+\item
+	
+\end{enumerate}
+
+\paragraph{Question 2:}
+
+Since the cross-validation error is the same for both set of parameters. This question can be answered with the following reasoning:
+\begin{itemize}
+	\item It is dependant how many more support vectors are being generated by the second set of parameters. Higher number of support vectors lead for a higher chance of over-fitting.
+\end{itemize}
+
+\begin{itemize}
+	\item The computational time involved in prediction for these case of parameters, it is known that predictions will be computationally faster with lesser number of support vectors. Hence they would be preferable.
+\end{itemize}
+
+\begin{itemize}
+	\item An analogy can also be taken from Occam's razor that the simpler solution is always preferable as these vectors can be considered as generated assumptions by the model for giving predictions. This would again lead to a choice of parameters which provided lesser number of support vectors.
+	
+\end{itemize}
+
+\paragraph{Question 3:}
+
+\paragraph{Question 4:}
+
+
+a) In a polynomial kernel increasing 'd' which is the number of dimensions will increase the chances of over-fitting. The reason being that as 'd' is increased the number of features present in the higher dimensional space will increase drastically. Higher dimension projection of the existing feature space not only make the model overfit but also they make it computationally expensive to perform. Hence this kernel suffers from the curse of dimensionality.
+
+
+b) The Gaussian kernel is not directly affected by increasing dimensions. While the sigma governs the estimation for bias and variance. The affect of sigma is not directly relatable to curse of dimensionality because the expansion of this kernel is a taylor series and that is infinite all scenarios eitherways. Hence increasing or decreasing sigma will not be a cause for over-fitting however it can be used to control scenarios of bias and variance for the model.
+
+
+c) Using the assumption that the feature maps are not infinite
+
+Since: \begin{equation} K(x_i,x_i') = <\phi(x_i),\phi(x_i')> \end{equation}
+
+Since H(a) = max(1-a,0) it can be inferred that H(a) >= 0 for all scenarios.
+
+If 1-a>0 then:
+
+\begin{equation}
+a = y_i(w^t x_i)
+\end{equation}
+
+This is representative of a linear function. If we suppose a scenario for two functions are present in a max function and it can be proven that the max is a convex then it can be said the same for the function above.
+
+Consider two generic functions as h = max(f,g)
+
+Linear inequality for convexity: \begin{equation}h(z) <= t h(x)+(1 − t) h(y) h(z) <= t h (x) + (1 − t) h(y) where, z = t x+(1 − t) y z = t x + (1 − t) y
+\end{equation}
+
+Since,
+
+\begin{equation}h=max{f,g}
+\end{equation}
+
+This is equivalent to two inequalities:
+\begin{equation}
+f(z)<=t h(x)+(1−t)h(y)
+\end{equation}
+
+\begin{equation}
+g(z)<=t h(x)+(1−t)h(y)
+\end{equation}
+
+By convexity of f one knows that:
+
+\begin{equation}
+f(z)<=t f(x)+(1−t)f(y)f(z)<=t f(x)+(1−t)f(y)
+\end{equation}
+Therefore we can say that H(a) is a convex function of a.
+
 
 
 \end{document}
