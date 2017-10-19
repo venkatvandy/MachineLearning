@@ -21,9 +21,6 @@ public class MRFImageProcessor {
         int[][] hidden_nodes = image1;
         int[][] temp_output = new int[original_image.length][original_image[0].length];
 
-        double energy_h_h = 0;
-        double energy_h_o = 0;
-
         HashMap<Integer, Double> unique_colors = new HashMap<Integer, Double>();
         for(int i=0;i<original_image.length;i++){
             for(int j=0;j<original_image[i].length;j++){
@@ -31,11 +28,10 @@ public class MRFImageProcessor {
             }
         }
 
+        if(unique_colors.size()==2){
         for (int k = 0; k < num_iterations; k++) {
                 for (int i = 0; i < hidden_nodes.length; i++) {
                     for (int j = 0; j < hidden_nodes[i].length; j++) {
-                        energy_h_h = 0;
-                        energy_h_o = 0;
 
                         for(HashMap.Entry<Integer,Double> m:unique_colors.entrySet()) {
                             if (i == 0 || i == hidden_nodes.length - 1 || j == 0 || j == hidden_nodes[i].length - 1) { //boundary conditions
@@ -240,7 +236,131 @@ public class MRFImageProcessor {
                     }
                 }
                 hidden_nodes = temp_output;
+        }}
+        else { //biggest else
+            for (int k = 0; k < num_iterations; k++) {
+                for (int i = 0; i < hidden_nodes.length; i++) {
+                    for (int j = 0; j < hidden_nodes[i].length; j++) {
+
+                        for(HashMap.Entry<Integer,Double> m:unique_colors.entrySet()) {
+                            if (i == 0 || i == hidden_nodes.length - 1 || j == 0 || j == hidden_nodes[i].length - 1) { //boundary conditions
+                                //corners
+                                if(i==0 && j==0) {
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j + 1])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i + 1][j])+1) -1 )*beta);
+
+                                }
+
+                                if(i==0 && j==hidden_nodes[i].length-1){
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j - 1])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i + 1][j])+1) -1 )*beta);
+
+                                }
+
+                                if(i==hidden_nodes.length-1 && j==0){
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i - 1][j])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j + 1])+1) -1 )*beta);
+
+                                }
+                                if(i==hidden_nodes.length-1 && j==hidden_nodes[i].length-1){
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j - 1])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i - 1][j])+1) -1 )*beta);
+
+                                }
+                                //corners end
+
+                                //1st row
+                                if(i==0 && j>0 && j<hidden_nodes[i].length-1) {
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j - 1])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j + 1])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i + 1][j])+1) -1 )*beta);
+
+                                }
+
+
+                                //last row
+                                if(i==hidden_nodes.length-1 && j>0 && j<hidden_nodes[i].length-1) {
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j - 1])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j + 1])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i -1][j])+1) -1 )*beta);
+                                }
+
+                                //1st column
+                                if(j==0 && i>0 && i<hidden_nodes.length-1) {
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i - 1][j])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i + 1][j])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j + 1])+1) -1 )*beta);
+
+                                }
+
+
+                                //last column
+                                if(j==hidden_nodes[i].length-1 && i>0 && i<hidden_nodes.length-1) {
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i - 1][j])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i + 1][j])+1) -1 )*beta);
+
+                                    unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j - 1])+1) -1 )*beta);
+
+                                }
+
+                                unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-original_image[i][j])+1) -1 )*eta);
+
+                            } else { //big else
+
+                                unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j - 1])+1) -1 )*beta);
+
+                                unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i][j + 1])+1) -1 )*beta);
+
+                                unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i - 1][j])+1) -1 )*beta);
+
+                                unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-hidden_nodes[i + 1][j])+1) -1 )*beta);
+
+                                unique_colors.put(m.getKey(),m.getValue()+(Math.log(Math.abs(m.getKey()-original_image[i][j])+1) -1 )*eta);
+
+                            } //else finished
+                        } //for finished
+
+                        double min_val = 20000;
+                        int required_color=0;
+
+                        for(HashMap.Entry<Integer,Double> m:unique_colors.entrySet()) {
+                            if(m.getValue()<min_val){
+                                min_val = m.getValue();
+                                required_color = m.getKey();
+                            }
+                        }
+
+                        temp_output[i][j] = required_color;
+
+                        //zero out hashmap
+                        for(HashMap.Entry<Integer,Double> m:unique_colors.entrySet()) {
+                            unique_colors.put(m.getKey(),0.0);
+                        }
+
+                    }
+                }
+                hidden_nodes = temp_output;
+            }
         }
+
         return hidden_nodes;
     }
 }
