@@ -178,7 +178,7 @@ public abstract class ImageUtils {
 			}
 			
 			//String format "png", "jpg", "gif"  
-			System.out.println("Saving " + format);
+			System.out.println("\nSaving " + format);
 			ImageIO.write(img, format, new File(ref));  
 		} catch (IOException e) {  
 			e.printStackTrace();  

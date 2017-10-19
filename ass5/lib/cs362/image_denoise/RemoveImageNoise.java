@@ -72,7 +72,9 @@ public class RemoveImageNoise {
 		int[][] denosified_image_array = mrf.denoisifyImage(encoded_image_array, encoded_image_array2);
 		
 		int[][] decoded_image_array = ImageUtils.decodeImageArrayUsingColorMap(color_map, denosified_image_array);
-		
+
+		if(encoded_image_array2!=null)
+			ImageUtils.compareImages(encoded_image_array2,denosified_image_array);
 		
 		BufferedImage new_image = ImageUtils.convertIntArrayToImage(decoded_image_array);
 		
