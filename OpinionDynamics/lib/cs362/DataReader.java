@@ -23,53 +23,48 @@ public class DataReader {
 		this._scanner.close();
 	}
 	
-	public List<Instance> readData() {
-		ArrayList<Instance> instances = new ArrayList<Instance>();
-		
+	//public List<Instance> readData() {
+	public OpinionData readData() {
+		//ArrayList<Instance> instances = new ArrayList<Instance>();
+		OpinionData od = new OpinionData();
+		int a=0;
 		while (this._scanner.hasNextLine()) {
 			String line = this._scanner.nextLine();
 			if (line.trim().length() == 0)
 				   continue;
-			
 
-		
-			// Divide the line into features and label.
-			//String[] split_line = line.split(" ");
+			if(a==0){
+				a=1;
+				String[] nodes =line.split(" ");
+				for(int i=0;i<nodes.length;i++){
+					ArrayList<Integer> flist = new ArrayList<>();
+					int follower = Integer.parseInt(nodes[i].split(":")[0]);
+					String followees  = nodes[i].split(":")[1];
+					String[] followees_list = followees.split(",");
+					for(int j =0;j<followees_list.length;j++){
+						flist.add(Integer.parseInt(followees_list[j]));
+					}
 
-			/*String label_string = split_line[0];
-			Label label = null;
-			if (this._classification) {
-				int int_label = Integer.parseInt(label_string);
-				if (int_label != -1) {
-					label = new ClassificationLabel(int_label);
+					od.OpGraph.put(follower,flist);
 				}
-			} else {
-				try {
-					double double_label = Double.parseDouble(label_string);
-					label = new RegressionLabel(double_label);
-				} catch (Exception e) {
-					
-				}
-			}*/
-			//for (int ii = 1; ii < split_line.length; ii++) {
-				//String item = split_line[ii];
-				//String user = item.split(":")[0];
+			}
+
+			else
+			{
 				String user =line.split(":")[0];
 				int uid = Integer.parseInt(user);
 				double sentiment = Double.parseDouble(line.split(":")[1]);
 				int time = Integer.parseInt(line.split(":")[2]);
 
 				FeatureVector feature_vector = new FeatureVector(uid,sentiment,time);
-				/*if (value != 0)
-					feature_vector.add(index, value);*/
 
-
-			//}
-			
-			Instance instance = new Instance(feature_vector);
-			instances.add(instance);
+				Instance instance = new Instance(feature_vector);
+				//instances.add(instance);
+				od.instances.add(instance);
+			}
 		}		
 		
-		return instances;
+		//return instances;
+		return od;
 	}
 }

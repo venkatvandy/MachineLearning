@@ -100,11 +100,13 @@ Learn {
 			}
 			// Load the training data.
 			DataReader data_reader = new DataReader(data, classify);
-			List<Instance> instances = data_reader.readData();
+			//List<Instance> instances = data_reader.readData();
+			OpinionData od = data_reader.readData();
 			data_reader.close();
 			
 			// Train the model.
-			Predictor predictor = train(instances, algorithm);
+			//Predictor predictor = train(instances, algorithm);
+			Predictor predictor = train(od, algorithm);
 			saveObject(predictor, model_file);		
 			
 		} else if (mode.equalsIgnoreCase("test")) {
@@ -115,19 +117,22 @@ Learn {
 			
 			// Load the test data.
 			DataReader data_reader = new DataReader(data, classify);
-			List<Instance> instances = data_reader.readData();
+			//List<Instance> instances = data_reader.readData();
+			OpinionData od = data_reader.readData();
 			data_reader.close();
 			
 			// Load the model.
 			Predictor predictor = (Predictor)loadObject(model_file);
-			evaluateAndSavePredictions(predictor, instances, predictions_file);
+			//evaluateAndSavePredictions(predictor, instances, predictions_file);
+			//evaluateAndSavePredictions(predictor, instances, predictions_file);
 		} else {
 			System.out.println("Requires mode argument.");
 		}
 	}
 	
 
-	private static Predictor train(List<Instance> instances, String algorithm) {
+	//private static Predictor train(List<Instance> instances, String algorithm) {
+	private static Predictor train(OpinionData od, String algorithm) {
 	    // TODO Train the model using "algorithm" on "data"
 	    // TODO Evaluate the model
 		/*if(algorithm.equalsIgnoreCase("lambda_means")){
@@ -135,8 +140,8 @@ Learn {
 			lmp.train(instances);
 			return lmp;
 		}*/
-		OpinionPrediction op = new OpinionPrediction(instances);
-		op.train(instances);
+		OpinionPrediction op = new OpinionPrediction(od);
+		op.train(od);
 		return op;
 
 		//return null;

@@ -1,6 +1,8 @@
 package cs362;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Instance implements Serializable {
 
