@@ -39,7 +39,8 @@ Learn {
 		CommandLineUtilities.initCommandLineParameters(args, Learn.options, manditory_args);
 	
 		String mode = CommandLineUtilities.getOptionValue("mode");
-		String data = CommandLineUtilities.getOptionValue("data");
+		String senti_data = CommandLineUtilities.getOptionValue("senti_data");
+		String graph_data = CommandLineUtilities.getOptionValue("graph_data");
 		String predictions_file = CommandLineUtilities.getOptionValue("predictions_file");
 		String algorithm = CommandLineUtilities.getOptionValue("algorithm");
 		String model_file = CommandLineUtilities.getOptionValue("model_file");
@@ -94,12 +95,12 @@ Learn {
 		}
 		
 		if (mode.equalsIgnoreCase("train")) {
-			if (data == null || algorithm == null || model_file == null) {
-				System.out.println("Train requires the following arguments: data, algorithm, model_file");
+			if (senti_data == null || algorithm == null || model_file == null || graph_data == null) {
+				System.out.println("Train requires the following arguments: senti_data, graph_data, algorithm, model_file");
 				System.exit(0);
 			}
 			// Load the training data.
-			DataReader data_reader = new DataReader(data, classify);
+			DataReader data_reader = new DataReader(senti_data, graph_data, classify);
 			//List<Instance> instances = data_reader.readData();
 			OpinionData od = data_reader.readData();
 			data_reader.close();
@@ -109,7 +110,7 @@ Learn {
 			Predictor predictor = train(od, algorithm);
 			saveObject(predictor, model_file);		
 			
-		} else if (mode.equalsIgnoreCase("test")) {
+		} /*else if (mode.equalsIgnoreCase("test")) {
 			if (data == null || predictions_file == null || model_file == null) {
 				System.out.println("Train requires the following arguments: data, predictions_file, model_file");
 				System.exit(0);
@@ -125,7 +126,7 @@ Learn {
 			Predictor predictor = (Predictor)loadObject(model_file);
 			//evaluateAndSavePredictions(predictor, instances, predictions_file);
 			//evaluateAndSavePredictions(predictor, instances, predictions_file);
-		} else {
+		}*/ else {
 			System.out.println("Requires mode argument.");
 		}
 	}
@@ -215,7 +216,8 @@ Learn {
 	}
 	
 	private static void createCommandLineOptions() {
-		registerOption("data", "String", true, "The data to use.");
+		registerOption("senti_data", "String", true, "The data to use.");
+		registerOption("graph_data", "String", true, "The data to use.");
 		registerOption("mode", "String", true, "Operating mode: train or test.");
 		registerOption("predictions_file", "String", true, "The predictions file to create.");
 		registerOption("algorithm", "String", true, "The name of the algorithm for training.");

@@ -1,0 +1,4 @@
+Code
+Model Simulation -> https://github.com/dunan/MultiVariatePointProcess
+Estimation A , alpha -> synthetic
+Sentiment analysis -> https://mislove.org/publications/Weather-ICWSM.pdf
