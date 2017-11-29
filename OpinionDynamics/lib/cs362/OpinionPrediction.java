@@ -4,10 +4,7 @@ import jdk.nashorn.internal.ir.Block;
 import org.apache.commons.math3.linear.*;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class OpinionPrediction extends Predictor {
 
@@ -188,7 +185,7 @@ public class OpinionPrediction extends Predictor {
         }
 
         print_matrix(alpha);
-        print_matrix(A);
+        //print_matrix(A);
 
 
     }
@@ -216,6 +213,60 @@ public class OpinionPrediction extends Predictor {
     @Override
     public void train(OpinionData opinionData) {
         estimateAlphaA(opinionData);
+
+        //Calculate max time
+        int max_time = 0;
+        for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()) {
+            int size_of_arraylist = m.getValue().size();
+            int current_time = m.getValue().get(size_of_arraylist-1).getTime();
+            if(current_time>max_time){
+                max_time = current_time;
+            }
+        }
+
+        //Initialize mu(initial intensities) for each user
+        BlockRealMatrix mu = new BlockRealMatrix(1,total_users);
+        Random rand = new Random();
+        for(int i=0;i<total_users;i++){
+            mu.setEntry(0,i,rand.nextDouble());
+        }
+
+        OpinionModelSimulation(max_time+60000,mu/*beta,*/);
+    }
+
+    public void OpinionModelSimulation(int T,BlockRealMatrix mu){
+        BlockRealMatrix LastOpinionUpdateValue = alpha;
+        BlockRealMatrix  LastOpinionUpdateTime = new BlockRealMatrix(1,total_users);
+
+        BlockRealMatrix LastIntensityUpdateValue = mu;
+        BlockRealMatrix LastIntensityUpdateTime = new BlockRealMatrix(1,total_users);
+
+        ArrayList<MyPair> H = new ArrayList<>();
+
+        for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()) {
+            int cur_user = m.getKey();
+            //int post_time = SampleEvent(mu.getEntry(0,cur_user),0,cur_user);
+            double post_time = SampleEvent(mu.getEntry(0,cur_user),0,cur_user,T);
+            //H.add(new MyPair(cur_user,0.0,post_time));
+        }
+
+        Collections.sort(H);
+
+    }
+
+    //public int SampleEvent(double lambda, int t,int v){
+    public double SampleEvent(double lambda, int t,int v,int T){
+
+        double lambda_ = lambda;
+        double s = (double)t;
+        Random rand = new Random();
+        while(s<T){
+            double u = rand.nextDouble();
+            s = s - (Math.log(u)/lambda_);
+
+        }
+
+        return s;
     }
 
     @Override
