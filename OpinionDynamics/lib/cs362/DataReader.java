@@ -109,6 +109,28 @@ public class DataReader {
 				//instances.add(instance);
 				od.instances.add(instance);
 			}
+
+			while (this.graph_scanner.hasNextLine()) {
+				String line = this.graph_scanner.nextLine();
+				if (line.trim().length() == 0)
+					continue;
+
+				String follower =line.split("	")[0];
+				int follower_uid = Integer.parseInt(follower);
+				int followee = Integer.parseInt(line.split("	")[1]);
+
+				if(od.OpGraph.containsKey(follower_uid)){
+					ArrayList<Integer> amp = od.OpGraph.get(follower_uid);
+					amp.add(followee);
+					od.OpGraph.put(follower_uid,amp);
+				}
+				else {
+					ArrayList<Integer> amp= new ArrayList<>();
+					amp.add(followee);
+					od.OpGraph.put(follower_uid,amp);
+				}
+			}
+
 		}
 		return od;
 	}

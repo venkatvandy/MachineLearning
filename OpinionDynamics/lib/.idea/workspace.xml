@@ -15,8 +15,8 @@
       <file leaf-file-name="OpinionPrediction.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cs362/OpinionPrediction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+            <state relative-caret-position="-1789">
+              <caret line="123" column="42" lean-forward="false" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -24,11 +24,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="576" column="0" lean-forward="false" selection-start-line="576" selection-start-column="0" selection-end-line="576" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Predictor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cs362/Predictor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+            <state relative-caret-position="160">
+              <caret line="5" column="55" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -37,28 +47,8 @@
       <file leaf-file-name="Learn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cs362/Learn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="103" column="51" lean-forward="false" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumberFormatException.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/lang/NumberFormatException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeatureVector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cs362/FeatureVector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="439">
+              <caret line="137" column="21" lean-forward="false" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -67,21 +57,11 @@
       <file leaf-file-name="DataReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cs362/DataReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-800">
-              <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+            <state relative-caret-position="1995">
+              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cs362/test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -89,30 +69,8 @@
       <file leaf-file-name="OpinionData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cs362/OpinionData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Integer.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/lang/Integer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="614" column="0" lean-forward="false" selection-start-line="614" selection-start-column="0" selection-end-line="614" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Instance.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cs362/Instance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+            <state relative-caret-position="160">
+              <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,16 +93,24 @@
       <find>instances</find>
       <find>getTime</find>
       <find>data</find>
-      <find>printArraylist</find>
       <find>print_ma</find>
       <find>tota</find>
       <find>Collec</find>
       <find>compara</find>
       <find>collec</find>
       <find>opinionData</find>
-      <find>estimateAlphaA</find>
       <find>close</find>
+      <find>estimateAlphaA</find>
+      <find>OpinionModelSimulation</find>
+      <find>printArraylist</find>
+      <find>print(&quot;\n</find>
       <find>readData</find>
+      <find>alpha</find>
+      <find>.size</find>
+      <find>size</find>
+      <find>.getEnt</find>
+      <find>inferOpinionParams</find>
+      <find>total_users</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -156,12 +122,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/cs362/Instance.java" />
+        <option value="$PROJECT_DIR$/cs362/test.java" />
         <option value="$PROJECT_DIR$/cs362/OpinionData.java" />
         <option value="$PROJECT_DIR$/cs362/Predictor.java" />
-        <option value="$PROJECT_DIR$/cs362/OpinionPrediction.java" />
         <option value="$PROJECT_DIR$/cs362/Learn.java" />
-        <option value="$PROJECT_DIR$/cs362/test.java" />
         <option value="$PROJECT_DIR$/cs362/DataReader.java" />
+        <option value="$PROJECT_DIR$/cs362/OpinionPrediction.java" />
       </list>
     </option>
   </component>
@@ -223,12 +189,82 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Opinion">
-    <configuration name="Opinion" type="Application" factoryName="Application">
+  <component name="RunManager" selected="Application.BollyTrain">
+    <configuration name="BollyTest" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="cs362.Learn -mode train -algorithm lambda_means -model_file twitter.opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -task classification" />
+      <option name="PROGRAM_PARAMETERS" value="cs362.Learn -mode test -algorithm lambda_means -model_file twitter.bollywood_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_BollywoodTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_BollywoodTwitter.txt -predictions_file twitter.movie.predictions -task classification" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="BollyTrain" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="cs362.Learn -mode train -algorithm lambda_means -model_file twitter.bollywood_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_BollywoodTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_BollywoodTwitter.txt -predictions_file twitter.movie.predictions -task classification" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="FightTest" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="cs362.Learn -mode test -algorithm lambda_means -model_file twitter.fight_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_FIghtTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_FightTwitter.txt -predictions_file twitter.movie.predictions -task classification" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="FightTrain" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="cs362.Learn -mode train -algorithm lambda_means -model_file twitter.fight_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_FIghtTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_FightTwitter.txt -predictions_file twitter.movie.predictions -task classification" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="TestMovie" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="cs362.Learn -mode test -algorithm lambda_means -model_file twitter.movie_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -predictions_file twitter.movie.predictions -task classification " />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lib" />
+      <envs />
+    </configuration>
+    <configuration name="TrainMovie" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="cs362.Learn" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="cs362.Learn -mode train -algorithm lambda_means -model_file twitter.movie_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -predictions_file twitter.movie.predictions -task classification" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -319,6 +355,14 @@
       <properties />
       <listeners />
     </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Application.TrainMovie" />
+      <item index="1" class="java.lang.String" itemvalue="Application.TestMovie" />
+      <item index="2" class="java.lang.String" itemvalue="Application.BollyTrain" />
+      <item index="3" class="java.lang.String" itemvalue="Application.FightTrain" />
+      <item index="4" class="java.lang.String" itemvalue="Application.FightTest" />
+      <item index="5" class="java.lang.String" itemvalue="Application.BollyTest" />
+    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -344,7 +388,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.808204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5587583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -374,14 +418,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1073">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cs362/FeatureVector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -423,7 +459,7 @@
         <state relative-caret-position="203">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -503,7 +539,7 @@
         <state relative-caret-position="203">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -583,7 +619,7 @@
         <state relative-caret-position="203">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -663,7 +699,7 @@
         <state relative-caret-position="203">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -735,7 +771,7 @@
         <state relative-caret-position="203">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -745,7 +781,7 @@
         <state relative-caret-position="0">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -754,6 +790,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="614" column="0" lean-forward="false" selection-start-line="614" selection-start-column="0" selection-end-line="614" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cs362/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -774,44 +818,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cs362/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cs362/Learn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="103" column="51" lean-forward="false" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cs362/DataReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-800">
-          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        <state relative-caret-position="1995">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cs362/Learn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="137" column="21" lean-forward="false" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cs362/Predictor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        <state relative-caret-position="160">
+          <caret line="5" column="55" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="576" column="0" lean-forward="false" selection-start-line="576" selection-start-column="0" selection-end-line="576" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cs362/OpinionData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="160">
+          <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -820,8 +864,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cs362/OpinionPrediction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+        <state relative-caret-position="-1789">
+          <caret line="123" column="42" lean-forward="false" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

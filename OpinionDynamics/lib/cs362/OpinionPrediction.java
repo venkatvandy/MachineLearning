@@ -3,6 +3,7 @@ package cs362;
 import jdk.nashorn.internal.ir.Block;
 import org.apache.commons.math3.linear.*;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -13,8 +14,13 @@ public class OpinionPrediction extends Predictor {
     HashMap<Integer,BlockRealMatrix> ghmap = new HashMap<>();
     HashMap<Integer,BlockRealMatrix> Yhmap = new HashMap<>();
     BlockRealMatrix alpha;
+    BlockRealMatrix sigma;
     BlockRealMatrix A;
     int total_users;
+    ArrayList<Double> MSE = new ArrayList<>();
+    ArrayList<Double> PredictedOpinion = new ArrayList<>();
+    double MSEval=0;
+
 
     //public OpinionPrediction(List<Instance> instances){
     public OpinionPrediction(OpinionData opinionData){
@@ -41,12 +47,12 @@ public class OpinionPrediction extends Predictor {
            }
            Collections.sort(m.getValue());
         }
-
-        printHistory(opinionData.OpGraph);
+        total_users = opinionData.OpGraph.size();
+        //printHistory(opinionData.OpGraph);
     }
 
     void printHistory(HashMap<Integer,ArrayList<Integer>> OpGraph){
-        for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()) {
+        /*for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()) {
             System.out.print(m.getKey()+":");
             ArrayList<MyPair> amp = m.getValue();
             for(int i = 0; i < amp.size(); i++) {
@@ -56,7 +62,7 @@ public class OpinionPrediction extends Predictor {
                 System.out.print(" || ");
             }
             System.out.print("\n");
-        }
+        }*/
 
         System.out.print("Graph\n");
         for (HashMap.Entry<Integer, ArrayList<Integer>> m : OpGraph.entrySet()) {
@@ -82,6 +88,11 @@ public class OpinionPrediction extends Predictor {
 
     public RealMatrix inferOpinionParams(BlockRealMatrix Y, BlockRealMatrix g,double lambda){
 
+        if(g == null){
+            RealMatrix ret = MatrixUtils.createRealMatrix(total_users+1,1);
+            return ret;
+        }
+
         int s = g.getRowDimension();
 
         BlockRealMatrix L = (g.transpose()).multiply(g);
@@ -106,12 +117,16 @@ public class OpinionPrediction extends Predictor {
     }
 
     public void estimateAlphaA(OpinionData opinionData){
-        for (HashMap.Entry<Integer, ArrayList<Integer>> m : opinionData.OpGraph.entrySet()) {
+        //System.out.print("******History is: "+opinionData.OpGraph.size());
+        //for (HashMap.Entry<Integer, ArrayList<Integer>> m : opinionData.OpGraph.entrySet()) {
+        for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()){
             int each_user = m.getKey();
+            System.out.print(each_user+"\n");
             ArrayList<Integer> neigh_list_of_each_user = new ArrayList<>();
-            neigh_list_of_each_user = m.getValue();
+            //neigh_list_of_each_user = m.getValue();
+            neigh_list_of_each_user = opinionData.OpGraph.get(each_user);
 
-            BlockRealMatrix g = new BlockRealMatrix(history.get(each_user).size(),history.size()+1);
+            BlockRealMatrix g = new BlockRealMatrix(history.get(each_user).size(),total_users+1);
             BlockRealMatrix Y = new BlockRealMatrix(history.get(each_user).size(),1);
 
 
@@ -121,11 +136,12 @@ public class OpinionPrediction extends Predictor {
 
                 int neighbour_id = neigh_list_of_each_user.get(i);
                 ArrayList<MyPair> blah = history.get(neighbour_id);
-                merged.addAll(blah);
+                if(blah != null)
+                    merged.addAll(blah);
 
                 Collections.sort(merged);
 
-                printArraylist(merged);
+                //printArraylist(merged);
 
                 double opinion_last=0;
                 int t_last = 0;
@@ -156,7 +172,7 @@ public class OpinionPrediction extends Predictor {
                     opinion_last = opinion_now;
                 }
 
-                System.out.print(" \n ");
+                //System.out.print("\n");
             }
 
             ghmap.put(each_user,g);
@@ -167,24 +183,25 @@ public class OpinionPrediction extends Predictor {
             //print_matrix(Y);
         }
 
-        total_users = history.size();
+        //total_users = history.size();
+
         alpha = new BlockRealMatrix(1,total_users);
         A  = new BlockRealMatrix(total_users,total_users);
 
-        for (HashMap.Entry<Integer, ArrayList<Integer>> m : opinionData.OpGraph.entrySet()) {
+        //for (HashMap.Entry<Integer, ArrayList<Integer>> m : opinionData.OpGraph.entrySet()) {
+        for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()){
             int each_user = m.getKey();
+            System.out.print(each_user+"\n");
             RealMatrix a = inferOpinionParams(Yhmap.get(each_user),ghmap.get(each_user),0.5);
 
             alpha.setEntry(0,each_user-1,a.getEntry(0,0));
             A.setColumnMatrix(each_user-1,a.getSubMatrix(1,total_users,0,0));
 
 
-
         }
 
-        print_matrix(alpha);
+        //print_matrix(alpha);
         //print_matrix(A);
-
 
     }
 
@@ -207,10 +224,33 @@ public class OpinionPrediction extends Predictor {
         }
     }
 
+    void calculate_sd(OpinionData opinionData){
+        sigma = new BlockRealMatrix(1,total_users);
+        for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()) {
+            //m.getKey()
+            double mean = 0;
+            ArrayList<MyPair> amp = m.getValue();
+            for (int i = 0; i < amp.size(); i++) {
+                mean = mean + amp.get(i).getSentiment();
+            }
+            mean = mean / amp.size();
+            double sum = 0;
+            for (int i = 0; i < amp.size(); i++) {
+                sum = sum + Math.pow(amp.get(i).getSentiment() - mean, 2);
+            }
+            sum = sum / amp.size();
+            sum = Math.sqrt(sum);
+
+            sigma.setEntry(0, m.getKey() - 1, sum);
+        }
+
+        System.out.print("\n\n*******STD calculated");
+    }
 
     @Override
     public void train(OpinionData opinionData) {
         estimateAlphaA(opinionData);
+        calculate_sd(opinionData);
 
         /*//Calculate max time
         int max_time = 0;
@@ -232,23 +272,65 @@ public class OpinionPrediction extends Predictor {
         OpinionModelSimulation(max_time+60000,mu);  */
     }
 
-    public void OpinionModelSimulation(int T,BlockRealMatrix mu){
+    //public void OpinionModelSimulation(int T,BlockRealMatrix mu){
+    public void OpinionModelSimulation(OpinionData opinionData){
         BlockRealMatrix LastOpinionUpdateValue = alpha;
         BlockRealMatrix  LastOpinionUpdateTime = new BlockRealMatrix(1,total_users);
 
-        BlockRealMatrix LastIntensityUpdateValue = mu;
-        BlockRealMatrix LastIntensityUpdateTime = new BlockRealMatrix(1,total_users);
+        //BlockRealMatrix LastIntensityUpdateValue = mu;
+        //BlockRealMatrix LastIntensityUpdateTime = new BlockRealMatrix(1,total_users);
 
         ArrayList<MyPair> H = new ArrayList<>();
 
-        for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()) {
+        /*for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()) {
             int cur_user = m.getKey();
             //int post_time = SampleEvent(mu.getEntry(0,cur_user),0,cur_user);
             double post_time = SampleEvent(mu.getEntry(0,cur_user),0,cur_user,T);
             //H.add(new MyPair(cur_user,0.0,post_time));
         }
 
-        Collections.sort(H);
+        Collections.sort(H);*/
+        Random r = new Random();
+        MSEval = 0;
+        for(int i=0;i<opinionData.instances.size();i++){
+            int user = opinionData.instances.get(i).getFeatureVector().getUid();
+            int cur_time = opinionData.instances.get(i).getFeatureVector().getTime();
+            double tu = LastOpinionUpdateTime.getEntry(0,user-1);
+            double xtu = LastOpinionUpdateValue.getEntry(0,user-1);
+
+            double xtu_ = alpha.getEntry(0,user-1) + (xtu - alpha.getEntry(0,user-1))* Math.exp(-1*omega*(cur_time-tu));
+
+            double pred_senti = xtu_ + r.nextGaussian()*sigma.getEntry(0,user-1) ;
+
+            LastOpinionUpdateTime.setEntry(0,user-1,cur_time);
+            LastOpinionUpdateValue.setEntry(0,user-1,xtu_);
+
+            PredictedOpinion.add(pred_senti);
+            System.out.print("Original Sentiment Value: " + opinionData.instances.get(i).getFeatureVector().getSentiment());
+            System.out.print("     Predicted Sentiment Value: " + pred_senti + "\n");
+            //MSE.add(Math.pow(pred_senti - opinionData.instances.get(i).getFeatureVector().getSentiment(),2));
+            MSEval = MSEval + Math.pow(pred_senti - opinionData.instances.get(i).getFeatureVector().getSentiment(),2);
+
+            ArrayList<Integer> followers = opinionData.OpGraph.get(user);
+            for(int j=0;j<followers.size();j++){
+                int follower_id = followers.get(j);
+
+                double tv = LastOpinionUpdateTime.getEntry(0,follower_id-1);
+                double xtv = LastOpinionUpdateValue.getEntry(0,follower_id-1);
+
+                double xtv_ = alpha.getEntry(0,follower_id-1) + (xtv - alpha.getEntry(0,follower_id-1))* Math.exp(-1*omega*(cur_time-tv)) + (A.getEntry(follower_id-1,user-1)*xtu_);
+
+                //ulta
+                //double xtv_ = alpha.getEntry(0,follower_id-1) + (xtv - alpha.getEntry(0,follower_id-1))* Math.exp(-1*omega*(cur_time-tv)) + (A.getEntry(user-1,follower_id-1)*xtu_);
+
+                LastOpinionUpdateTime.setEntry(0,follower_id-1,cur_time);
+                LastOpinionUpdateValue.setEntry(0,follower_id-1,xtv_);
+
+            }
+
+        }
+        //MSEval = MSEval/opinionData.instances.size();
+        System.out.print("\n\n*************\n\nMSE is: "+MSEval);
 
     }
 
@@ -268,11 +350,12 @@ public class OpinionPrediction extends Predictor {
     }
 
     @Override
-    public Label predict(Instance instance) {
+    public Label predict(OpinionData opinionData) {
+        OpinionModelSimulation(opinionData);
         return null;
     }
 
-    public class MyPair implements Comparable
+    public class MyPair implements Comparable, Serializable
     {
         private  int uid;
         private double sentiment;

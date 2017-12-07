@@ -13,4 +13,12 @@ public class OpinionData {
         this.instances = new ArrayList<Instance>();
     }
 
+    void print_OpinionData(){
+        for(int i=0;i<this.instances.size();i++){
+            System.out.print(this.instances.get(i).getFeatureVector().getUid());
+            System.out.print(this.instances.get(i).getFeatureVector().getSentiment());
+            System.out.print(this.instances.get(i).getFeatureVector().getTime()+"\n");
+        }
+    }
+
 }

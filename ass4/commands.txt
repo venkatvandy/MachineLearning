@@ -286,6 +286,37 @@ cs362.Learn -mode train -algorithm lambda_means -model_file twitter.opinion.mode
 cs362.Learn -mode train -algorithm lambda_means -model_file twitter.opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt 
 -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -task classification 
 
+cs362.Learn -mode train -algorithm lambda_means -model_file twitter.opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -task classification 
+
+
+cs362.Learn -mode train -algorithm lambda_means -model_file twitter.opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\input.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\GraphInput.txt -task classification
+
+
+
+*****************
+
+
+cs362.Learn -mode train -algorithm lambda_means -model_file twitter.movie_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -predictions_file twitter.movie.predictions -task classification
+
+cs362.Learn -mode test -algorithm lambda_means -model_file twitter.movie_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -predictions_file twitter.movie.predictions -task classification
+
+~~~~~
+
+cs362.Learn -mode train -algorithm lambda_means -model_file twitter.bollywood_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_BollywoodTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_BollywoodTwitter.txt -predictions_file twitter.movie.predictions -task classification
+
+cs362.Learn -mode test -algorithm lambda_means -model_file twitter.bollywood_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_BollywoodTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_BollywoodTwitter.txt -predictions_file twitter.movie.predictions -task classification
+
+~~~~~~
+
+cs362.Learn -mode train -algorithm lambda_means -model_file twitter.politics_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -predictions_file twitter.movie.predictions -task classification
+
+cs362.Learn -mode test -algorithm lambda_means -model_file twitter.politics_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_MovieTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_MovieTwitter.txt -predictions_file twitter.movie.predictions -task classification
+
+~~~~~~
+
+cs362.Learn -mode train -algorithm lambda_means -model_file twitter.fight_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_FIghtTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_FightTwitter.txt -predictions_file twitter.movie.predictions -task classification
+
+cs362.Learn -mode test -algorithm lambda_means -model_file twitter.fight_opinion.model -senti_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Sentiment_FIghtTwitter.txt  -graph_data E:\Toshiba_desktop\Vanderbilt\Sem_3\MachineLearning\HW\OpinionDynamics\data\Twitter\Graph_FightTwitter.txt -predictions_file twitter.movie.predictions -task classification
 
 
 

@@ -104,34 +104,41 @@ Learn {
 			DataReader data_reader = new DataReader(senti_data, graph_data, classify);
 			//List<Instance> instances = data_reader.readData();
 			OpinionData od_train = data_reader.readData(1);
-			System.out.println("Reading train data");
+			//od_train.print_OpinionData();
+
+			//System.out.print("******************");
 
 			OpinionData od_test = data_reader.readData(2);
-			System.out.println("Reading test data");
+			//od_test.OpGraph = od_train.OpGraph;
+			//od_test.print_OpinionData();
+
 			data_reader.close();
 			
 			// Train the model.
 			//Predictor predictor = train(instances, algorithm);
 			Predictor predictor = train(od_train, algorithm);
+			//predictor.predict(od_test);
+
 			saveObject(predictor, model_file);		
 			
-		} /*else if (mode.equalsIgnoreCase("test")) {
-			if (data == null || predictions_file == null || model_file == null) {
+		} else if (mode.equalsIgnoreCase("test")) {
+			if (predictions_file == null || model_file == null) {
 				System.out.println("Train requires the following arguments: data, predictions_file, model_file");
 				System.exit(0);
 			}
 			
 			// Load the test data.
-			DataReader data_reader = new DataReader(data, classify);
-			//List<Instance> instances = data_reader.readData();
-			OpinionData od = data_reader.readData();
+			DataReader data_reader = new DataReader(senti_data,graph_data, classify);
+			//List<Instance> instances = data_reader.readData(2);
+			OpinionData od = data_reader.readData(2);
 			data_reader.close();
 			
 			// Load the model.
 			Predictor predictor = (Predictor)loadObject(model_file);
+			predictor.predict(od);
 			//evaluateAndSavePredictions(predictor, instances, predictions_file);
 			//evaluateAndSavePredictions(predictor, instances, predictions_file);
-		}*/ else {
+		} else {
 			System.out.println("Requires mode argument.");
 		}
 	}
