@@ -100,14 +100,19 @@ Learn {
 				System.exit(0);
 			}
 			// Load the training data.
+			System.out.println("askbfsduabfsa");
 			DataReader data_reader = new DataReader(senti_data, graph_data, classify);
 			//List<Instance> instances = data_reader.readData();
-			OpinionData od = data_reader.readData();
+			OpinionData od_train = data_reader.readData(1);
+			System.out.println("Reading train data");
+
+			OpinionData od_test = data_reader.readData(2);
+			System.out.println("Reading test data");
 			data_reader.close();
 			
 			// Train the model.
 			//Predictor predictor = train(instances, algorithm);
-			Predictor predictor = train(od, algorithm);
+			Predictor predictor = train(od_train, algorithm);
 			saveObject(predictor, model_file);		
 			
 		} /*else if (mode.equalsIgnoreCase("test")) {

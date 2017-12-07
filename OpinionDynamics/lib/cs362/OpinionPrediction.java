@@ -16,8 +16,6 @@ public class OpinionPrediction extends Predictor {
     BlockRealMatrix A;
     int total_users;
 
-
-
     //public OpinionPrediction(List<Instance> instances){
     public OpinionPrediction(OpinionData opinionData){
 
@@ -44,7 +42,7 @@ public class OpinionPrediction extends Predictor {
            Collections.sort(m.getValue());
         }
 
-        //printHistory(opinionData.OpGraph);
+        printHistory(opinionData.OpGraph);
     }
 
     void printHistory(HashMap<Integer,ArrayList<Integer>> OpGraph){
@@ -127,7 +125,7 @@ public class OpinionPrediction extends Predictor {
 
                 Collections.sort(merged);
 
-                //printArraylist(merged);
+                printArraylist(merged);
 
                 double opinion_last=0;
                 int t_last = 0;
@@ -158,7 +156,7 @@ public class OpinionPrediction extends Predictor {
                     opinion_last = opinion_now;
                 }
 
-                //System.out.print(" \n ");
+                System.out.print(" \n ");
             }
 
             ghmap.put(each_user,g);
@@ -214,7 +212,7 @@ public class OpinionPrediction extends Predictor {
     public void train(OpinionData opinionData) {
         estimateAlphaA(opinionData);
 
-        //Calculate max time
+        /*//Calculate max time
         int max_time = 0;
         for (HashMap.Entry<Integer, ArrayList<MyPair>> m : history.entrySet()) {
             int size_of_arraylist = m.getValue().size();
@@ -231,7 +229,7 @@ public class OpinionPrediction extends Predictor {
             mu.setEntry(0,i,rand.nextDouble());
         }
 
-        OpinionModelSimulation(max_time+60000,mu/*beta,*/);
+        OpinionModelSimulation(max_time+60000,mu);  */
     }
 
     public void OpinionModelSimulation(int T,BlockRealMatrix mu){
